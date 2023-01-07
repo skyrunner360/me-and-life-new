@@ -3,7 +3,7 @@ import { randomUUID } from "crypto";
 import jwt, { Secret } from "jsonwebtoken";
 import type { NextApiRequest, NextApiResponse } from "next";
 import connectDb from "../../middleware/mongoose";
-import user from "./schemas/users";
+import user from "./schemas/writingsSchema";
 
 type Data = {
   message: string;
