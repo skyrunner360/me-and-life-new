@@ -36,6 +36,32 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     } catch (error) {
       return res.status(400).json({ message: "Please enter Correct Credentials" });
     }
+  } else if (req.method === "PATCH") {
+    try {
+      let slug = req.body.slug;
+      let updateObj = req.body.data;
+      await techBlogDb.findOneAndUpdate({ slug }, updateObj);
+      return res.status(200).json({ message: "Updated Successfully" });
+    } catch (error) {
+      return res.status(400).json({ message: `${error}` });
+    }
+  } else if (req.method === "PUT") {
+    try {
+      let insertObj = req.body.insert;
+      let instance = new techBlogDb(insertObj);
+      await instance.save();
+      return res.status(201).json({ message: "Inserted Successfully" });
+    } catch (error) {
+      return res.status(400).json({ message: `${error}` });
+    }
+  } else if (req.method === "DELETE") {
+    try {
+      let slug = req.body.slug;
+      await techBlogDb.findOneAndDelete({ slug });
+      return res.status(204);
+    } catch (error) {
+      return res.status(400).json({ message: `${error}` });
+    }
   } else {
     return res.status(500).json({ message: "Internal Server Error!" });
   }
