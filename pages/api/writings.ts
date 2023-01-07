@@ -1,0 +1,63 @@
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+/** @type {import("mongoose").Model} */
+import type { NextApiRequest, NextApiResponse } from "next";
+import connectDb from "../../middleware/mongoose";
+import WritingsDb from "./schemas/writingsSchema";
+interface Data {
+  _id?: number;
+  message?: string;
+  data?: Array<responseData>;
+  accessToken?: string;
+}
+interface responseData {
+  _id: number;
+  sno: number;
+  title: string;
+  content: string;
+  category: string;
+  author: string;
+  slug: string;
+  timeStamp: string;
+  img: string;
+  views: number;
+}
+
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  if (req.method === "GET") {
+    try {
+      let db = await WritingsDb.find();
+      return res.status(200).json({ data: db });
+    } catch (error) {
+      return res.status(400).json({ message: `${error}` });
+    }
+  } else if (req.method === "PATCH") {
+    try {
+      let slug = req.body.slug;
+      let updateObj = req.body.data;
+      await WritingsDb.findOneAndUpdate({ slug }, updateObj);
+      return res.status(200).json({ message: "Updated Successfully" });
+    } catch (error) {
+      return res.status(400).json({ message: `${error}` });
+    }
+  } else if (req.method === "PUT") {
+    try {
+      let insertObj = req.body.insert;
+      let instance = new WritingsDb(insertObj);
+      await instance.save();
+      return res.status(201).json({ message: "Inserted Successfully" });
+    } catch (error) {
+      return res.status(400).json({ message: `${error}` });
+    }
+  } else if (req.method === "DELETE") {
+    try {
+      let slug = req.body.slug;
+      await WritingsDb.findOneAndDelete({ slug });
+      return res.status(204);
+    } catch (error) {
+      return res.status(400).json({ message: `${error}` });
+    }
+  } else {
+    return res.status(500).json({ message: "Internal Server Error!" });
+  }
+};
+export default connectDb(handler);
