@@ -6,7 +6,7 @@ const connectDb = (handler: NextApiHandler) => (req: NextApiRequest, res: NextAp
   if (mongoose.connections[0].readyState) {
     return handler(req, res);
   }
-  mongoose.connect(`${process.env.MONGO_URI}`);
+  mongoose.connect(`${process.env.MONGODB_URI}`);
   return handler(req, res);
 };
 export default connectDb;
