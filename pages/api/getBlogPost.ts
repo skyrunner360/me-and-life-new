@@ -30,8 +30,14 @@ interface responseData {
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "GET") {
     try {
-      let db = await blogPostDb.find();
-      return res.status(200).json({ data: db });
+      let slug = req.query.slug;
+      if (slug === undefined) {
+        let db = await blogPostDb.find();
+        return res.status(200).json({ data: db });
+      } else {
+        let data = await blogPostDb.findOne({ slug });
+        return res.status(200).json({ data });
+      }
     } catch (error) {
       return res.status(400).json({ message: "Please enter Correct Credentials" });
     }
