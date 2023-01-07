@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const writings_writing = new mongoose.Schema(
+const WritingsSchema = new mongoose.Schema(
   {
     sno: { type: Number },
     title: { type: String, required: true },
@@ -8,7 +8,6 @@ const writings_writing = new mongoose.Schema(
     category: { type: String, required: true },
     author: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
-    // timeStamp: { type: String, required: false, unique: true },
     img: { type: String, required: false },
     views: { type: Number },
   },
@@ -17,4 +16,4 @@ const writings_writing = new mongoose.Schema(
 
 mongoose.models = {};
 
-export default mongoose.model("WritingsDb", writings_writing);
+export default mongoose.model("WritingsDb", WritingsSchema);
