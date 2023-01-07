@@ -20,11 +20,7 @@ interface responseData {
   img: string;
   views: number;
 }
-interface updateData {
-  user: {
-    id: string;
-  };
-}
+
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "GET") {
     try {
