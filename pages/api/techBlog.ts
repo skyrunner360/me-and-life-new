@@ -60,7 +60,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     try {
       let slug = req.body.slug;
       await techBlogDb.findOneAndDelete({ slug });
-      return res.status(204);
+      return res.status(204).json({ message: "Deleted Successfully" });
     } catch (error) {
       return res.status(400).json({ message: `${error}` });
     }
