@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import authenticate from "../../middleware/authenticateToken";
 import connectDb from "../../middleware/mongoose";
 import blogPostDb from "./schemas/blogPostSchema";
 
@@ -28,6 +29,7 @@ interface responseData {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  authenticate(req, res);
   if (req.method === "GET") {
     try {
       let slug = req.query.slug;

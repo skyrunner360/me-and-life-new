@@ -13,21 +13,10 @@ type Data = {
 const jwtSecret: String | undefined = process.env.JWT_SECRET;
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  if (req.method === "POST") {
-    let uid = randomUUID();
-    var users = new user({
-      userId: uid,
-      isAdmin: req.body.isAdmin,
-    });
-    const data = {
-      user: {
-        id: users.userId,
-      },
-    };
-    await users.save();
+  if (req.method === "GET") {
+    const data: string | undefined = process.env.JWT_TOKEN_DATA;
     // Generate Token on Sign Up
-    let authToken = jwt.sign(data, jwtSecret as Secret);
-
+    let authToken = jwt.sign(data as string, jwtSecret as Secret);
     return res.status(201).json({ message: "Success", authToken });
   } else {
     return res.status(400).json({ message: "ERROR: Bad Request" });

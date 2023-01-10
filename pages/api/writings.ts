@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 /** @type {import("mongoose").Model} */
 import type { NextApiRequest, NextApiResponse } from "next";
+import authenticate from "../../middleware/authenticateToken";
 import connectDb from "../../middleware/mongoose";
 import WritingsDb from "./schemas/writingsSchema";
 interface Data {
@@ -23,6 +24,7 @@ interface responseData {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  authenticate(req, res);
   if (req.method === "GET") {
     try {
       let slug = req.query.slug;
@@ -57,8 +59,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   } else if (req.method === "DELETE") {
     try {
       let slug = req.body.slug;
+      console.log("slug", slug);
       await WritingsDb.findOneAndDelete({ slug });
-      return res.status(204);
+      return res.status(204).json({ message: "deleted successfully" });
     } catch (error) {
       return res.status(400).json({ message: `${error}` });
     }
