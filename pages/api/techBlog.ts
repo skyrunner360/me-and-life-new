@@ -24,7 +24,6 @@ interface responseData {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  console.log("test");
   authenticate(req, res);
   if (req.method === "GET") {
     try {
