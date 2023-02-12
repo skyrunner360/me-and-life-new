@@ -16,7 +16,7 @@ html{
 section{
   position: relative;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: center;
   min-height: 400px;
   padding: 100px 20vw;

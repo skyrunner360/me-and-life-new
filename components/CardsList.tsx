@@ -1,8 +1,9 @@
+import Box from "@mui/material/Box";
 import Styles from "./CardsList.module.css";
 const CardsList = () => {
   return (
     <>
-      <section className={Styles.cardList}>
+      <Box className={Styles.cardList}>
         <article className={Styles.card}>
           <header className={Styles.cardHeader}>
             <p>Sep 11th 2020</p>
@@ -178,7 +179,7 @@ const CardsList = () => {
             <a href="#">css</a>
           </div>
         </article>
-      </section>
+      </Box>
     </>
   );
 };
