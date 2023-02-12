@@ -10,6 +10,15 @@
 .bgDark{
   background: #0f0f10;
 }
+.neutral{
+  background: #F8F9FB
+}
+.highContrast{
+  background:#34495E
+}
+.accentColor{
+  background: #2E86C1
+}
 .curve{
   position: absolute;
   height: 225px;

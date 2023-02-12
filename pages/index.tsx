@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import AnimatedBlob from "../components/AnimatedBlob";
+import CardsList from "../components/CardsList";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -10,7 +11,8 @@ export default function Home() {
         <title>Me and Life</title>
         <meta name="description" content="Welcome to my blog - ME AND LIFE" />
       </Head>
-      <section className={styles.bgBlue}>
+      <CardsList />
+      <section className={styles.neutral}>
         <h1>nice curves</h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis rem fugiat delectus
@@ -21,7 +23,7 @@ export default function Home() {
       </section>
 
       <div className={`${styles.spacer} ${styles.mountains}`}></div>
-      <section>
+      <section className={styles.highContrast}>
         <h1>nice curves</h1>
         <p>
           Molestias reprehenderit voluptatum animi nostrum in molestiae placeat autem quo suscipit
@@ -29,8 +31,8 @@ export default function Home() {
           illum voluptatibus omnis exercitationem. Minima hic beatae nostrum.
         </p>
       </section>
-      <div className={`${styles.spacer} ${styles.mountains}`}></div>
-      <section className={styles.bgPink}>
+      <div className={`${styles.spacer} ${styles.mountains}`}>Mountains contains text</div>
+      <section className={styles.accentColor}>
         <h1>nice curves</h1>
         <p>
           Veritatis eius, ex aperiam, facilis cupiditate amet possimus ducimus doloremque eum autem
