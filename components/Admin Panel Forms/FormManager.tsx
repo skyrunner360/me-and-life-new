@@ -11,11 +11,6 @@ const FormManager = () => {
   return (
     <>
       <Box p={1}>
-        {!isLoggedin ? (
-          <Login setIsLoggedin={setIsLoggedin} />
-        ) : (
-          (ActivePanelMap as any)[activePanel]
-        )}
         {isLoggedin && (
           <Stack direction={"row"} gap={1} alignItems="center" justifyContent={"center"}>
             <Button variant="outlined" onClick={() => setActivePanel("blog")}>
@@ -28,6 +23,11 @@ const FormManager = () => {
               Go to Writings
             </Button>
           </Stack>
+        )}
+        {!isLoggedin ? (
+          <Login setIsLoggedin={setIsLoggedin} />
+        ) : (
+          (ActivePanelMap as any)[activePanel]
         )}
       </Box>
     </>

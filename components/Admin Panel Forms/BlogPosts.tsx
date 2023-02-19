@@ -1,4 +1,4 @@
-import { Box, Card, CardHeader, CircularProgress, Typography } from "@mui/material";
+import { Box, Button, Card, CardHeader, CircularProgress, Stack, Typography } from "@mui/material";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import moment from "moment";
 import { getBlogs } from "./AdminPanelLogic";
@@ -36,7 +36,10 @@ const BlogPosts = () => {
         ) : (
           data.data.map((elem: blogPostsResponse) => {
             return (
-              <Box p={2}>
+              <Box p={2} border="1px solid #fff">
+                <Stack direction={"row"} alignItems="center" justifyContent={"center"}>
+                  <Button>Edit </Button>
+                </Stack>
                 <Box>
                   <Typography variant="body1" color={"InfoText"}>
                     {elem.title}
