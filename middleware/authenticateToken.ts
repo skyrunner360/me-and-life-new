@@ -7,6 +7,6 @@ export default function authenticate(req: NextApiRequest, res: NextApiResponse) 
   if (token === null) return res.status(401).json({ message: "Unauthorized" });
   jwt.verify(token as string, accessTokenSecret as Secret, (err, val) => {
     if (err) return res.status(403).json({ message: `Unauthorized! Invalid Token ${err}` });
-    req.body.token = val;
+    // req.body.token = val;
   });
 }
