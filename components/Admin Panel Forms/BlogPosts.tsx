@@ -36,7 +36,7 @@ const BlogPosts = () => {
         ) : (
           data.data.map((elem: blogPostsResponse) => {
             return (
-              <Box p={2} border="1px solid #fff">
+              <Box p={2} key={elem.slug} border="1px solid #fff">
                 <Stack direction={"row"} alignItems="center" justifyContent={"center"}>
                   <Button>Edit </Button>
                 </Stack>
