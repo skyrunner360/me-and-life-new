@@ -8,8 +8,13 @@ export const ActivePanelMap = {
   tech: <TechBlog />,
   writing: <Writings />,
 };
+
 export const getBlogs = () => {
   return axios.get("blogPost", {
     headers: { Authorization: process.env.NEXT_PUBLIC_JWT_TOKEN },
   });
+};
+
+export const getTechBlog = () => {
+  return axios.get("techBlog", { headers: { Authorization: process.env.NEXT_PUBLIC_JWT_TOKEN } });
 };
