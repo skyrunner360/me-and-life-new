@@ -2,9 +2,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { PostCard } from "./AdminHelperComponents";
-import { getWritings } from "./AdminPanelLogic";
+import { deleteWriting, getWritings } from "./AdminPanelLogic";
 
 interface writingsRes {
   _id: number;
@@ -20,6 +20,7 @@ interface writingsRes {
 }
 
 const Writings = () => {
+  const queryClient = useQueryClient();
   const blogsQuery = useQuery({
     queryKey: ["writings"],
     queryFn: ({ queryKey }) => getWritings().then((res) => res.data),
@@ -31,6 +32,13 @@ const Writings = () => {
   if (isLoading) {
     return <CircularProgress />;
   }
+  const DeleteWriting = (slug: string) => {
+    deleteWriting({ slug })
+      .then((res) => {
+        queryClient.invalidateQueries(["writings"]);
+      })
+      .catch((err) => console.log(`Error- ${err.message}`));
+  };
   return (
     <>
       <Box>
@@ -42,7 +50,7 @@ const Writings = () => {
                 key={elem.slug}
                 elem={elem}
                 onEdit={() => console.log("Edit from Writings clicked")}
-                onDelete={() => console.log("Delete from Writings clicked")}
+                onDelete={() => DeleteWriting(elem.slug)}
               />
             );
           })}

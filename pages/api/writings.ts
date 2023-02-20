@@ -58,9 +58,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     }
   } else if (req.method === "DELETE") {
     try {
-      let slug = req.body.slug;
-      console.log("slug", slug);
-      await WritingsDb.findOneAndDelete({ slug });
+      let parsedBody = JSON.parse(req.body);
+      await WritingsDb.findOneAndDelete({ slug: parsedBody.slug });
       return res.status(204).json({ message: "deleted successfully" });
     } catch (error) {
       return res.status(400).json({ message: `${error}` });
