@@ -1,10 +1,9 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useQuery } from "@tanstack/react-query";
-import moment from "moment";
+import { PostCard } from "./AdminHelperComponents";
 import { getTechBlog } from "./AdminPanelLogic";
 
 interface techBlogRes {
@@ -35,29 +34,19 @@ const TechBlog = () => {
   return (
     <>
       <Box>
-        <Typography variant="h2">All Blog posts </Typography>
-        {data.data.map((elem: techBlogRes) => {
-          return (
-            <Box p={2} key={elem.slug} border="1px solid #296bd6">
-              <Stack direction={"row"} alignItems="center" justifyContent={"center"}>
-                <Button>Edit </Button>
-              </Stack>
-              <Box>
-                <Typography variant="body1" color={"InfoText"}>
-                  {elem.title}
-                </Typography>
-                <Typography variant="body2" color={"limegreen"}>
-                  {elem.slug}
-                </Typography>
-              </Box>
-              <Box>
-                <Typography variant="subtitle1" color={"GrayText"}>
-                  on: {moment(elem.timeStamp).format("MMMM Do YYYY, h:mm:ss a")}
-                </Typography>
-              </Box>
-            </Box>
-          );
-        })}
+        <Typography variant="h2">All Tech Blog posts </Typography>
+        <Box maxHeight={"90vh"} overflow="auto">
+          {data.data.map((elem: techBlogRes) => {
+            return (
+              <PostCard
+                key={elem.slug}
+                elem={elem}
+                onEdit={() => console.log("Edit from TechBlog clicked")}
+                onDelete={() => console.log("Delete from TechBlog clicked")}
+              />
+            );
+          })}
+        </Box>
         <Box textAlign={"right"} p={1}>
           <Button>Add new</Button>
         </Box>

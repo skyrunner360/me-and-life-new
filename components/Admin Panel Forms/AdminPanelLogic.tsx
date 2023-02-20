@@ -18,3 +18,7 @@ export const getBlogs = () => {
 export const getTechBlog = () => {
   return axios.get("techBlog", { headers: { Authorization: process.env.NEXT_PUBLIC_JWT_TOKEN } });
 };
+
+export const getWritings = () => {
+  return axios.get("writings", { headers: { Authorization: process.env.NEXT_PUBLIC_JWT_TOKEN } });
+};
