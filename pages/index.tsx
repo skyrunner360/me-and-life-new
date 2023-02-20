@@ -12,8 +12,8 @@ export default function Home() {
         <title>Me and Life</title>
         <meta name="description" content="Welcome to my blog - ME AND LIFE" />
       </Head>
-          <Header/>
-          
+      <Header />
+
       <CardsList />
 
       <section className={styles.neutral}>

@@ -9,9 +9,9 @@ body {
   background: hsl(0,0%,12%);
   overflow-x: hidden;
 }
-html{
+/* html{
   color-scheme: dark light;
-}
+} */
 
 section{
   position: relative;

@@ -1,5 +1,9 @@
-import { Box, Button, Card, CardHeader, CircularProgress, Stack, Typography } from "@mui/material";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import { useQuery } from "@tanstack/react-query";
 import moment from "moment";
 import { getBlogs } from "./AdminPanelLogic";
 
@@ -26,37 +30,41 @@ const BlogPosts = () => {
     queryFn: ({ queryKey }) => getBlogs().then((res) => res.data),
   });
   const { data, isLoading, error } = blogsQuery;
+  if (error) {
+    return <pre>Something went Wrong {JSON.stringify(error)} </pre>;
+  }
+  if (isLoading) {
+    return <CircularProgress />;
+  }
   return (
     <>
       <Box>
         <Typography variant="h2">All Blog posts </Typography>
-        <>{error && <pre>Something went Wrong {JSON.stringify(error)} </pre>}</>
-        {isLoading ? (
-          <CircularProgress />
-        ) : (
-          data.data.map((elem: blogPostsResponse) => {
-            return (
-              <Box p={2} key={elem.slug} border="1px solid #fff">
-                <Stack direction={"row"} alignItems="center" justifyContent={"center"}>
-                  <Button>Edit </Button>
-                </Stack>
-                <Box>
-                  <Typography variant="body1" color={"InfoText"}>
-                    {elem.title}
-                  </Typography>
-                  <Typography variant="body2" color={"aliceblue"}>
-                    {elem.slug}
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography variant="subtitle1" color={"GrayText"}>
-                    on: {moment(elem.timeStamp).format("MMMM Do YYYY, h:mm:ss a")}
-                  </Typography>
-                </Box>
+        {data.data.map((elem: blogPostsResponse) => {
+          return (
+            <Box p={2} key={elem.slug} border="1px solid #296bd6">
+              <Stack direction={"row"} alignItems="center" justifyContent={"center"}>
+                <Button>Edit </Button>
+              </Stack>
+              <Box>
+                <Typography variant="body1" color={"InfoText"}>
+                  {elem.title}
+                </Typography>
+                <Typography variant="body2" color={"limegreen"}>
+                  {elem.slug}
+                </Typography>
               </Box>
-            );
-          })
-        )}
+              <Box>
+                <Typography variant="subtitle1" color={"GrayText"}>
+                  on: {moment(elem.timeStamp).format("MMMM Do YYYY, h:mm:ss a")}
+                </Typography>
+              </Box>
+            </Box>
+          );
+        })}
+        <Box textAlign={"right"} p={1}>
+          <Button>Add new</Button>
+        </Box>
       </Box>
     </>
   );
