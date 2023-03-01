@@ -63,10 +63,9 @@ const Writings = () => {
               <PostCard
                 key={elem.slug}
                 elem={elem}
-                onEdit={(title: string, content: string, slug: string) => {
-                  console.log("Edit from Writings clicked", title, content, slug);
-                  editWritings(elem.slug, title, content, slug);
-                }}
+                onEdit={(title: string, content: string, slug: string) =>
+                  editWritings(elem.slug, title, content, slug)
+                }
                 onDelete={() => DeleteWriting(elem.slug)}
               />
             );
