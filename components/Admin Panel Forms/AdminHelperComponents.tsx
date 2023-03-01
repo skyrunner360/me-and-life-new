@@ -1,10 +1,11 @@
+import { TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import moment from "moment";
 import { MouseEventHandler, useState } from "react";
-import { MessagesModal } from "../common/CommonComponents";
+import { CommonModal, MessagesModal } from "../common/CommonComponents";
 interface commonPostRes {
   _id: number;
   sno: number;
@@ -30,11 +31,12 @@ interface postCardProps {
 
 export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
   return (
     <>
       <Box p={2} key={elem.slug} border="1px solid #296bd6">
         <Stack direction={"row"} alignItems="center" justifyContent={"center"}>
-          <Button onClick={onEdit}>Edit </Button>
+          <Button onClick={() => setOpenEdit(true)}>Edit </Button>
           <Button onClick={() => setOpenDeleteModal(true)}>Delete</Button>
         </Stack>
         <Box>
@@ -58,10 +60,29 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
         msg={"This will permanently delete the post"}
         onConfirmClick={onDelete}
       />
+      <CommonModal open={openEdit} onClose={() => setOpenEdit(false)}>
+        <EditModalContents elem={elem} />
+      </CommonModal>
     </>
   );
 };
 
-const EditModalContents = () => {
-  return <Box p={1}></Box>;
+interface EditModalContentProps {
+  elem: commonPostRes;
+}
+
+const EditModalContents = ({ elem }: EditModalContentProps) => {
+  const [titleVal, setTitleVal] = useState(elem?.title || "");
+  return (
+    <Box p={1}>
+      <Box>
+        <TextField
+          label="Title"
+          placeholder="Any Title"
+          value={titleVal}
+          onChange={(e) => setTitleVal(e.target.value)}
+        />
+      </Box>
+    </Box>
+  );
 };
