@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { TextareaAutosize, TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
@@ -25,7 +25,7 @@ interface commonPostRes {
 }
 interface postCardProps {
   elem: commonPostRes;
-  onEdit: MouseEventHandler<HTMLButtonElement>;
+  onEdit: Function;
   onDelete: MouseEventHandler;
 }
 
@@ -61,7 +61,7 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
         onConfirmClick={onDelete}
       />
       <CommonModal open={openEdit} onClose={() => setOpenEdit(false)}>
-        <EditModalContents elem={elem} />
+        <EditModalContents elem={elem} onEdit={onEdit} />
       </CommonModal>
     </>
   );
@@ -69,19 +69,46 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
 
 interface EditModalContentProps {
   elem: commonPostRes;
+  onEdit: Function;
 }
 
-const EditModalContents = ({ elem }: EditModalContentProps) => {
-  const [titleVal, setTitleVal] = useState(elem?.title || "");
+const EditModalContents = ({ elem, onEdit }: EditModalContentProps) => {
+  const [titleVal, setTitleVal] = useState(elem.title);
+  const [contentVal, setContentVal] = useState(elem.content);
+  const [slugVal, setSlugVal] = useState(elem.slug);
   return (
     <Box p={1}>
-      <Box>
+      <Stack textAlign={"center"} gap={2}>
         <TextField
+          fullWidth
           label="Title"
           placeholder="Any Title"
           value={titleVal}
           onChange={(e) => setTitleVal(e.target.value)}
         />
+        <TextField
+          multiline
+          rows={5}
+          label="Content"
+          placeholder="Content of the Post"
+          value={contentVal}
+          onChange={(e) => setContentVal(e.target.value)}
+        />
+        <TextField
+          label="Slug"
+          placeholder="Must be Unique hyphen separated"
+          value={slugVal}
+          onChange={(e) => setSlugVal(e.target.value)}
+        />
+      </Stack>
+      <Box textAlign={"center"} p={2}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => onEdit(titleVal, contentVal, slugVal)}
+        >
+          Save Changes
+        </Button>
       </Box>
     </Box>
   );

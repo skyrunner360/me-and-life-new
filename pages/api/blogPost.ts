@@ -30,6 +30,8 @@ interface responseData {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   authenticate(req, res);
+  if (req.body.error)
+    return res.status(403).json({ message: `Unauthorized! Invalid Token ${req.body.error}` });
   if (req.method === "GET") {
     try {
       let slug = req.query.slug;

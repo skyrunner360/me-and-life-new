@@ -35,3 +35,6 @@ export const deleteWriting = (slugObj: slugData) => {
     data: JSON.stringify(slugObj),
   });
 };
+export const changeWriting = (vars: any) => {
+  return axios.patch("writings", vars);
+};

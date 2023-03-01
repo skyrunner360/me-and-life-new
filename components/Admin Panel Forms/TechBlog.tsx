@@ -20,11 +20,11 @@ interface techBlogRes {
 }
 
 const TechBlog = () => {
-  const blogsQuery = useQuery({
+  const techBlogQuery = useQuery({
     queryKey: ["techBlogs"],
     queryFn: ({ queryKey }) => getTechBlog().then((res) => res.data),
   });
-  const { data, isLoading, error } = blogsQuery;
+  const { data, isLoading, error } = techBlogQuery;
   if (error) {
     return <pre>Something went Wrong {JSON.stringify(error)} </pre>;
   }

@@ -2,9 +2,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { PostCard } from "./AdminHelperComponents";
-import { deleteWriting, getWritings } from "./AdminPanelLogic";
+import { changeWriting, deleteWriting, getWritings } from "./AdminPanelLogic";
 
 interface writingsRes {
   _id: number;
@@ -21,11 +21,15 @@ interface writingsRes {
 
 const Writings = () => {
   const queryClient = useQueryClient();
-  const blogsQuery = useQuery({
+  const writingsQuery = useQuery({
     queryKey: ["writings"],
     queryFn: ({ queryKey }) => getWritings().then((res) => res.data),
   });
-  const { data, isLoading, error } = blogsQuery;
+  const { data, isLoading, error } = writingsQuery;
+  const writingsMutation = useMutation({
+    mutationFn: changeWriting,
+    onSuccess: () => queryClient.invalidateQueries(["writings"]),
+  });
   if (error) {
     return <pre>Something went Wrong {JSON.stringify(error)} </pre>;
   }
@@ -39,6 +43,16 @@ const Writings = () => {
       })
       .catch((err) => console.log(`Error- ${err.message}`));
   };
+  const editWritings = (mutateSlug: string, title: string, content: string, slug: string) => {
+    writingsMutation.mutate({
+      slug: mutateSlug,
+      data: {
+        title,
+        content,
+        slug,
+      },
+    });
+  };
   return (
     <>
       <Box>
@@ -49,7 +63,10 @@ const Writings = () => {
               <PostCard
                 key={elem.slug}
                 elem={elem}
-                onEdit={() => console.log("Edit from Writings clicked")}
+                onEdit={(title: string, content: string, slug: string) => {
+                  console.log("Edit from Writings clicked", title, content, slug);
+                  editWritings(elem.slug, title, content, slug);
+                }}
                 onDelete={() => DeleteWriting(elem.slug)}
               />
             );
