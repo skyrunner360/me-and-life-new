@@ -30,7 +30,6 @@ interface postCardProps {
 
 export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
-
   return (
     <>
       <Box p={2} key={elem.slug} border="1px solid #296bd6">
@@ -61,4 +60,8 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
       />
     </>
   );
+};
+
+const EditModalContents = () => {
+  return <Box p={1}></Box>;
 };
