@@ -34,7 +34,9 @@ const TechBlog = () => {
   return (
     <>
       <Box>
-        <Typography variant="h2">All Tech Blog posts </Typography>
+        <Typography variant="h2" p={1}>
+          All Tech Blog posts{" "}
+        </Typography>
         <Box maxHeight={"90vh"} overflow="auto">
           {data.data.map((elem: techBlogRes) => {
             return (

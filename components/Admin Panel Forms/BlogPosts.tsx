@@ -38,7 +38,9 @@ const BlogPosts = () => {
   return (
     <>
       <Box>
-        <Typography variant="h2">All Blog posts </Typography>
+        <Typography variant="h2" p={1}>
+          All Blog posts{" "}
+        </Typography>
         <Box maxHeight={"90vh"} overflow="auto">
           {data.data.map((elem: blogPostsResponse) => {
             return (
