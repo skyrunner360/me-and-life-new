@@ -47,10 +47,10 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
           <Button onClick={() => setOpenDeleteModal(true)}>Delete</Button>
         </Stack>
         <Box>
-          <Typography variant="body1" color={"InfoText"}>
+          <Typography variant="body1" color={"primary"}>
             {elem.title}
           </Typography>
-          <Typography variant="body2" color={"limegreen"}>
+          <Typography variant="body2" color={"muted"}>
             {elem.slug}
           </Typography>
         </Box>
