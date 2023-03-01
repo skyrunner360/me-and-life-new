@@ -64,7 +64,7 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
         open={openDeleteModal}
         onClose={() => setOpenDeleteModal(false)}
         title={"Are you Sure?"}
-        msg={"This will permanently delete this post"}
+        msg={"This will permanently delete the post"}
         onConfirmClick={onDelete}
       />
     </>
