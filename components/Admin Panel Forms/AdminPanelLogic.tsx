@@ -38,3 +38,6 @@ export const deleteWriting = (slugObj: slugData) => {
 export const changeWriting = (vars: any) => {
   return axios.patch("writings", vars, { headers: { Authorization: Token } });
 };
+export const addWriting = (vars: any) => {
+  return axios.put("writings", vars, { headers: { Authorization: Token } });
+};

@@ -117,3 +117,51 @@ const EditModalContents = ({ elem, onEdit, closeModal }: EditModalContentProps) 
     </Box>
   );
 };
+interface AddNewModalContentProps {
+  onAdd: Function;
+  closeModal: Function;
+}
+export const AddNewModalContent = ({ onAdd, closeModal }: AddNewModalContentProps) => {
+  const [titleVal, setTitleVal] = useState("");
+  const [contentVal, setContentVal] = useState("");
+  const [slugVal, setSlugVal] = useState("");
+  return (
+    <Box p={2}>
+      <Stack textAlign={"center"} gap={2}>
+        <TextField
+          fullWidth
+          label="Title"
+          placeholder="Any Title"
+          value={titleVal}
+          onChange={(e) => setTitleVal(e.target.value)}
+        />
+        <TextField
+          multiline
+          rows={5}
+          label="Content"
+          placeholder="Content of the Post"
+          value={contentVal}
+          onChange={(e) => setContentVal(e.target.value)}
+        />
+        <TextField
+          label="Slug"
+          placeholder="Must be Unique hyphen separated"
+          value={slugVal}
+          onChange={(e) => setSlugVal(e.target.value)}
+        />
+      </Stack>
+      <Box textAlign={"center"} p={2}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => {
+            onAdd(titleVal, contentVal, slugVal);
+            closeModal();
+          }}
+        >
+          Add
+        </Button>
+      </Box>
+    </Box>
+  );
+};
