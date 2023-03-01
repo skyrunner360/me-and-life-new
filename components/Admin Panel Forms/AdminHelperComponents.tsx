@@ -61,7 +61,7 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
         onConfirmClick={onDelete}
       />
       <CommonModal open={openEdit} onClose={() => setOpenEdit(false)}>
-        <EditModalContents elem={elem} onEdit={onEdit} />
+        <EditModalContents elem={elem} onEdit={onEdit} closeModal={() => setOpenEdit(false)} />
       </CommonModal>
     </>
   );
@@ -70,9 +70,10 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
 interface EditModalContentProps {
   elem: commonPostRes;
   onEdit: Function;
+  closeModal: Function;
 }
 
-const EditModalContents = ({ elem, onEdit }: EditModalContentProps) => {
+const EditModalContents = ({ elem, onEdit, closeModal }: EditModalContentProps) => {
   const [titleVal, setTitleVal] = useState(elem.title);
   const [contentVal, setContentVal] = useState(elem.content);
   const [slugVal, setSlugVal] = useState(elem.slug);
@@ -105,7 +106,10 @@ const EditModalContents = ({ elem, onEdit }: EditModalContentProps) => {
         <Button
           variant="contained"
           color="success"
-          onClick={() => onEdit(titleVal, contentVal, slugVal)}
+          onClick={() => {
+            onEdit(titleVal, contentVal, slugVal);
+            closeModal();
+          }}
         >
           Save Changes
         </Button>
