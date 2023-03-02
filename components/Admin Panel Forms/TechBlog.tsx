@@ -2,9 +2,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { PostCard } from "./AdminHelperComponents";
-import { getTechBlog } from "./AdminPanelLogic";
+import { addTech, changeTech, getTechBlog } from "./AdminPanelLogic";
 
 interface techBlogRes {
   _id: number;
@@ -20,11 +20,22 @@ interface techBlogRes {
 }
 
 const TechBlog = () => {
+  const queryClient = useQueryClient();
   const techBlogQuery = useQuery({
     queryKey: ["techBlogs"],
     queryFn: ({ queryKey }) => getTechBlog().then((res) => res.data),
   });
   const { data, isLoading, error } = techBlogQuery;
+
+  const editTechMutation = useMutation({
+    mutationFn: changeTech,
+    onSuccess: () => queryClient.invalidateQueries(["techBlogs"]),
+  });
+  const addTechMutation = useMutation({
+    mutationFn: addTech,
+    onSuccess: () => queryClient.invalidateQueries(["techBlogs"]),
+  });
+
   if (error) {
     return <pre>Something went Wrong {JSON.stringify(error)} </pre>;
   }

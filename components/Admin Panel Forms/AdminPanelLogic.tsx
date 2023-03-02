@@ -8,6 +8,20 @@ const Token = process.env.NEXT_PUBLIC_JWT_TOKEN;
 interface slugData {
   slug: string;
 }
+interface changeData {
+  slug: string;
+  data: { title: string; content: string; slug: string };
+}
+
+interface addData {
+  insert: {
+    title: string;
+    content: string;
+    slug: string;
+    author: "skyrunner" | string;
+    category: string;
+  };
+}
 
 export const ActivePanelMap = {
   blog: <BlogPosts />,
@@ -21,8 +35,46 @@ export const getBlogs = () => {
   });
 };
 
+export const deleteBlog = (slugObj: slugData) => {
+  return axios.delete("blogPost", {
+    headers: { Authorization: Token },
+    data: JSON.stringify(slugObj),
+  });
+};
+
+export const changeBlog = (vars: changeData) => {
+  return axios.patch("blogPost", vars, {
+    headers: { Authorization: Token },
+  });
+};
+
+export const addBlog = (vars: addData) => {
+  return axios.put("blogPost", vars, {
+    headers: { Authorization: Token },
+  });
+};
+
 export const getTechBlog = () => {
   return axios.get("techBlog", { headers: { Authorization: Token } });
+};
+
+export const deleteTech = (slugObj: slugData) => {
+  return axios.delete("techBlog", {
+    headers: { Authorization: Token },
+    data: JSON.stringify(slugObj),
+  });
+};
+
+export const changeTech = (vars: changeData) => {
+  return axios.patch("techBlog", vars, {
+    headers: { Authorization: Token },
+  });
+};
+
+export const addTech = (vars: addData) => {
+  return axios.put("techBlog", vars, {
+    headers: { Authorization: Token },
+  });
 };
 
 export const getWritings = () => {
@@ -35,9 +87,9 @@ export const deleteWriting = (slugObj: slugData) => {
     data: JSON.stringify(slugObj),
   });
 };
-export const changeWriting = (vars: any) => {
+export const changeWriting = (vars: changeData) => {
   return axios.patch("writings", vars, { headers: { Authorization: Token } });
 };
-export const addWriting = (vars: any) => {
+export const addWriting = (vars: addData) => {
   return axios.put("writings", vars, { headers: { Authorization: Token } });
 };
