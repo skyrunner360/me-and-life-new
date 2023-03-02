@@ -3,8 +3,10 @@ import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { PostCard } from "./AdminHelperComponents";
-import { addTech, changeTech, getTechBlog } from "./AdminPanelLogic";
+import { useState } from "react";
+import { CommonModal } from "../common/CommonComponents";
+import { AddNewModalContent, PostCard } from "./AdminHelperComponents";
+import { addTech, changeTech, deleteTech, getTechBlog } from "./AdminPanelLogic";
 
 interface techBlogRes {
   _id: number;
@@ -26,7 +28,7 @@ const TechBlog = () => {
     queryFn: ({ queryKey }) => getTechBlog().then((res) => res.data),
   });
   const { data, isLoading, error } = techBlogQuery;
-
+  const [openAddNewModal, setOpenAddNewModal] = useState(false);
   const editTechMutation = useMutation({
     mutationFn: changeTech,
     onSuccess: () => queryClient.invalidateQueries(["techBlogs"]),
@@ -35,6 +37,25 @@ const TechBlog = () => {
     mutationFn: addTech,
     onSuccess: () => queryClient.invalidateQueries(["techBlogs"]),
   });
+
+  const editTechFn = (findSlug: string, title: string, content: string, slug: string) => {
+    editTechMutation.mutate({
+      slug: findSlug,
+      data: {
+        title,
+        content,
+        slug,
+      },
+    });
+  };
+
+  const deleteTechBlog = (slug: string) => {
+    deleteTech({ slug })
+      .then((res) => {
+        queryClient.invalidateQueries(["techBlogs"]);
+      })
+      .catch((err) => console.log(`Error- ${err.message}`));
+  };
 
   if (error) {
     return <pre>Something went Wrong {JSON.stringify(error)} </pre>;
@@ -54,16 +75,28 @@ const TechBlog = () => {
               <PostCard
                 key={elem.slug}
                 elem={elem}
-                onEdit={() => console.log("Edit from TechBlog clicked")}
-                onDelete={() => console.log("Delete from TechBlog clicked")}
+                onEdit={(title: string, content: string, slug: string) =>
+                  editTechFn(elem.slug, title, content, slug)
+                }
+                onDelete={() => deleteTechBlog(elem.slug)}
               />
             );
           })}
         </Box>
         <Box textAlign={"right"} p={1}>
-          <Button>Add new</Button>
+          <Button onClick={() => setOpenAddNewModal(true)}>Add new</Button>
         </Box>
       </Box>
+      <CommonModal open={openAddNewModal} onClose={() => setOpenAddNewModal(false)}>
+        <AddNewModalContent
+          onAdd={(title: string, content: string, slug: string) =>
+            addTechMutation.mutate({
+              insert: { title, content, slug, author: "skyrunner", category: "tech" },
+            })
+          }
+          closeModal={() => setOpenAddNewModal(false)}
+        />
+      </CommonModal>
     </>
   );
 };
