@@ -15,7 +15,6 @@ export default function Home() {
       <Header />
 
       <CardsList />
-
       <section className={styles.neutral}>
         <h1>nice curves</h1>
         <p>
