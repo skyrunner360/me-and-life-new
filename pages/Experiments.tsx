@@ -1,9 +1,11 @@
+import AnimatedText from "../components/AnimatedText";
 import TrackingBlur from "../components/TrackingBlur";
 
 const Experiments = () => {
   return (
     <div>
-      <TrackingBlur />
+      <AnimatedText word="Hi Skyrunner!" />
+      {/* <TrackingBlur /> */}
     </div>
   );
 };
