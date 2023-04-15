@@ -1,29 +1,8 @@
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import AddBox from "@mui/icons-material/AddBox";
-import CalendarMonth from "@mui/icons-material/CalendarMonth";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import Groups from "@mui/icons-material/Groups";
-import MonetizationOn from "@mui/icons-material/MonetizationOn";
-import PowerSettingsNew from "@mui/icons-material/PowerSettingsNew";
-import QuestionMark from "@mui/icons-material/QuestionMark";
-import SmartDisplay from "@mui/icons-material/SmartDisplay";
-import Work from "@mui/icons-material/Work";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import BoltIcon from "@mui/icons-material/Bolt";
+import CalendarMonth from "@mui/icons-material/CalendarMonth";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import HomeIcon from "@mui/icons-material/Home";
-import MenuIcon from "@mui/icons-material/Menu";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import CircularProgress from "@mui/material/CircularProgress";
-import FormControl from "@mui/material/FormControl";
-import IconButton from "@mui/material/IconButton";
-import TextField from "@mui/material/TextField";
-import Tooltip from "@mui/material/Tooltip";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -32,10 +11,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
 import { CSSObject, Theme, styled } from "@mui/material/styles";
+import Link from "next/link";
 import React, { useState } from "react";
 import { MOBILE_BREAKPOINT } from "./common/Constants";
-import Link from "next/link";
 import useDeviceSize from "./common/CustomHooks";
 
 const drawerWidth = 350;
@@ -106,57 +87,7 @@ const SideNavBar = () => {
     setExpandMenu(true);
   };
 
-  const handleClick = () => {
-    setExpandMenu(!expandMenu);
-  };
-  const closeModal = () => {
-    setOpenApplyOfferModal(false);
-  };
-
   const [expanded, setExpanded] = React.useState<string | false>(false);
-
-  const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-
-  const moreOption = (data: any, index: number) => {
-    return (
-      <ListItem
-        key={index}
-        disablePadding
-        sx={{ display: "block" }}
-        component="a"
-        target={data.title === "Refer, Invite & Earn" ? "" : "_blank"}
-        href={data?.path}
-      >
-        <ListItemButton
-          sx={{
-            minHeight: 48,
-            justifyContent: open ? "initial" : "center",
-            px: 0.5,
-          }}
-        >
-          <ListItemIcon
-            sx={{
-              minWidth: 0,
-              mr: open ? 3 : "auto",
-              justifyContent: "center",
-            }}
-          >
-            {data.icon}
-          </ListItemIcon>
-          <ListItemText
-            primary={
-              <Typography variant="body1" fontSize={14}>
-                {data.title}
-              </Typography>
-            }
-            sx={{ opacity: { sm: open ? 1 : 0 } }}
-          />
-        </ListItemButton>
-      </ListItem>
-    );
-  };
 
   const DrawerContent = (props: any) => {
     return (
