@@ -1,8 +1,9 @@
-import AnalyticsIcon from "@mui/icons-material/Analytics";
-import CalendarMonth from "@mui/icons-material/CalendarMonth";
-import CollectionsIcon from "@mui/icons-material/Collections";
+import ArticleIcon from "@mui/icons-material/Article";
+import ContactPageIcon from "@mui/icons-material/ContactPage";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import HomeIcon from "@mui/icons-material/Home";
-import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
+import InfoIcon from "@mui/icons-material/Info";
+import LaptopIcon from "@mui/icons-material/Laptop";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -18,6 +19,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { MOBILE_BREAKPOINT } from "./common/Constants";
 import useDeviceSize from "./common/CustomHooks";
+import { Avatar, IconButton } from "@mui/material";
 
 const drawerWidth = 350;
 
@@ -28,6 +30,8 @@ const openedMixin = (theme: Theme): CSSObject => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: "hidden",
+  backgroundColor: "hsl(0,0%,10%)",
+  color: "#fff",
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
@@ -37,6 +41,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
   }),
   overflowX: "hidden",
   width: theme.spacing(8),
+  backgroundColor: "hsl(0,0%,10%)",
   [theme.breakpoints.up("sm")]: {
     width: theme.spacing(8),
   },
@@ -45,7 +50,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  justifyContent: "flex-end",
+  justifyContent: "center",
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
 }));
@@ -66,7 +71,7 @@ const DrawerCustom = styled(Drawer, {
     "& .MuiDrawer-paper": closedMixin(theme),
   }),
   "& .MuiSvgIcon-root, & .MuiTypography-root": {
-    color: "#4c4d52",
+    color: "#fff",
   },
 }));
 
@@ -78,8 +83,8 @@ const SideNavBar = () => {
   const [loading, setLoading] = useState(false);
   const [showDemoVideoModal, setShowDemoVideoModal] = useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
   };
 
   const handleDrawerClose = () => {
@@ -104,7 +109,7 @@ const SideNavBar = () => {
 
             {
               title: "About Rishi",
-              icon: <CollectionsIcon />,
+              icon: <InfoIcon />,
               path: "/about",
               need_redirect: false,
             },
@@ -112,7 +117,7 @@ const SideNavBar = () => {
             {
               title: "Contact Me",
 
-              icon: <CalendarMonth />,
+              icon: <ContactPageIcon />,
               path: "/contact",
               need_redirect: false,
             },
@@ -120,7 +125,7 @@ const SideNavBar = () => {
             {
               title: "Tech Blogs",
               desc: "Blogs for discussing Technology",
-              icon: <TipsAndUpdatesIcon />,
+              icon: <LaptopIcon />,
               path: "/techBlogs",
               need_redirect: false,
             },
@@ -128,8 +133,14 @@ const SideNavBar = () => {
             {
               title: "Life Update Blogs",
               desc: `Blogs on Major Life Events`,
-              icon: <AnalyticsIcon />,
+              icon: <EmojiEventsIcon />,
               path: "/lifeBlogs",
+            },
+            {
+              title: "Writings",
+              desc: `Writings to let out my thoughts`,
+              icon: <ArticleIcon />,
+              path: "/writings",
             },
           ].map((data, index) => {
             return (
@@ -218,7 +229,11 @@ const SideNavBar = () => {
       <Box display={"flex"}>
         {windowWidth > MOBILE_BREAKPOINT && (
           <DrawerCustom variant="permanent" open={open} onClose={handleDrawerClose}>
-            <DrawerHeader>This is Test</DrawerHeader>
+            <DrawerHeader>
+              <IconButton onClick={toggleDrawer}>
+                <Avatar src={"menuIcon.jpg"} variant="rounded" />
+              </IconButton>
+            </DrawerHeader>
             <DrawerContent handleDrawerClose={handleDrawerClose} open={open} />
           </DrawerCustom>
         )}
