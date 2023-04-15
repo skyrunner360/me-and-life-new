@@ -19,9 +19,9 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { MOBILE_BREAKPOINT } from "./common/Constants";
 import useDeviceSize from "./common/CustomHooks";
-import { Avatar, IconButton } from "@mui/material";
+import { Avatar, ClickAwayListener, IconButton } from "@mui/material";
 
-const drawerWidth = 350;
+const drawerWidth = 250;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -56,10 +56,10 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 const DrawerCustom = styled(Drawer, {
-  shouldForwardProp: (prop) => prop !== "open",
+  shouldForwardProp: (prop) => true,
 })(({ theme, open }) => ({
   width: drawerWidth,
-  flexShrink: 0,
+  // flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
   ...(open && {
@@ -150,7 +150,7 @@ const SideNavBar = () => {
                     <Link href={data?.path || ""} style={{ textDecoration: "none" }}>
                       <ListItemButton
                         sx={{
-                          minHeight: 48,
+                          minHeight: 85,
                           textDecoration: "none",
                           justifyContent: open ? "initial" : "center",
                           px: 2.5,
@@ -226,17 +226,17 @@ const SideNavBar = () => {
   const [windowWidth] = useDeviceSize();
   return (
     <>
-      <Box display={"flex"}>
-        {windowWidth > MOBILE_BREAKPOINT && (
-          <DrawerCustom variant="permanent" open={open} onClose={handleDrawerClose}>
+      <Box>
+        <ClickAwayListener onClickAway={handleDrawerClose}>
+          <DrawerCustom variant="permanent" anchor="right" open={open} onClose={handleDrawerClose}>
             <DrawerHeader>
               <IconButton onClick={toggleDrawer}>
                 <Avatar src={"menuIcon.jpg"} variant="rounded" />
               </IconButton>
             </DrawerHeader>
-            <DrawerContent handleDrawerClose={handleDrawerClose} open={open} />
+            <DrawerContent />
           </DrawerCustom>
-        )}
+        </ClickAwayListener>
       </Box>
     </>
   );
