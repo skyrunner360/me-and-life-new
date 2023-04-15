@@ -20,6 +20,7 @@ import React, { useState } from "react";
 import { MOBILE_BREAKPOINT } from "./common/Constants";
 import useDeviceSize from "./common/CustomHooks";
 import { Avatar, ClickAwayListener, IconButton } from "@mui/material";
+import AnimatedText from "./AnimatedText";
 
 const drawerWidth = 250;
 
@@ -50,7 +51,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
 }));
@@ -59,7 +60,7 @@ const DrawerCustom = styled(Drawer, {
   shouldForwardProp: (prop) => true,
 })(({ theme, open }) => ({
   width: drawerWidth,
-  // flexShrink: 0,
+  flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
   ...(open && {
@@ -77,11 +78,7 @@ const DrawerCustom = styled(Drawer, {
 
 const SideNavBar = () => {
   const [open, setOpen] = React.useState(false);
-  const [expandMenu, setExpandMenu] = React.useState(false);
-  const [openApplyOfferModal, setOpenApplyOfferModal] = React.useState(false);
-  const [offerCode, setOfferCode] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [showDemoVideoModal, setShowDemoVideoModal] = useState(false);
+  const [hoverIndex, setHoverIndex] = useState<null | number>(null);
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -89,7 +86,6 @@ const SideNavBar = () => {
 
   const handleDrawerClose = () => {
     setOpen(false);
-    setExpandMenu(true);
   };
 
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -145,7 +141,11 @@ const SideNavBar = () => {
           ].map((data, index) => {
             return (
               <Tooltip title={!props?.open ? data?.title : ""} placement="right" arrow key={index}>
-                <ListItem key={index} disablePadding sx={{ display: "block" }}>
+                <ListItem
+                  key={index}
+                  disablePadding
+                  sx={{ display: "block", "&:hover": { backgroundColor: "#416B9B" } }}
+                >
                   {!data?.need_redirect ? (
                     <Link href={data?.path || ""} style={{ textDecoration: "none" }}>
                       <ListItemButton
@@ -230,9 +230,12 @@ const SideNavBar = () => {
         <ClickAwayListener onClickAway={handleDrawerClose}>
           <DrawerCustom variant="permanent" anchor="right" open={open} onClose={handleDrawerClose}>
             <DrawerHeader>
-              <IconButton onClick={toggleDrawer}>
-                <Avatar src={"menuIcon.jpg"} variant="rounded" />
-              </IconButton>
+              <Box display={"flex"} alignItems={"center"}>
+                {open && <Typography variant="body1">Welcome to Me and Life</Typography>}
+                <IconButton onClick={toggleDrawer}>
+                  <Avatar src={"menuIcon.jpg"} variant="rounded" />
+                </IconButton>
+              </Box>
             </DrawerHeader>
             <DrawerContent />
           </DrawerCustom>

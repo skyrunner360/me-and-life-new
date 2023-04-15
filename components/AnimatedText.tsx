@@ -1,14 +1,16 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 
 interface textProps {
   word: string;
+  component: any;
 }
-const AnimatedText = ({ word }: textProps) => {
+const AnimatedText = ({ word, component }: textProps) => {
   const Letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   return (
-    <h1
-      onMouseOver={(e) => {
+    <Box
+      component={component}
+      onMouseOver={(e: MouseEvent) => {
         let iteration = 0;
         const interval = setInterval(() => {
           // @ts-ignore
@@ -30,7 +32,7 @@ const AnimatedText = ({ word }: textProps) => {
       }}
     >
       {word}
-    </h1>
+    </Box>
   );
 };
 export default AnimatedText;
