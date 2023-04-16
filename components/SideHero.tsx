@@ -4,15 +4,21 @@ import AnimatedText from "./AnimatedText";
 
 const SideHero = () => {
   const carouselImages = [
-    { src: "menuIcon.jpg", word: "Welcome Stranger 👋" },
-    { src: "mountains.svg", word: "Welcome to the small world of this Introvert." },
+    { src: "carousel1.jpg", word: "Hello! Stranger 👋", textColor: "#fff" },
     {
-      src: "mountains.svg",
-      word: "Here I'll be posting some personal life updates, Some Tech Content and Some Original pieces of Writing.",
+      src: "carousel2.jpg",
+      word: "Welcome to the small world of this Introvert.",
+      textColor: "#fff",
     },
     {
-      src: "mountains.svg",
+      src: "carousel3.jpg",
+      word: "Here I'll be posting some personal life updates, Some Tech Content and Some Original pieces of Writing.",
+      textColor: "#fff",
+    },
+    {
+      src: "carousel4.jpg",
       word: "Feel free to explore this Website.",
+      textColor: "#fff",
     },
   ];
   return (
@@ -31,11 +37,21 @@ const SideHero = () => {
                   maxWidth: "25rem",
                   overflowX: "auto",
                   textAlign: "center",
+                  color: el.textColor,
                 }}
               >
                 <h1>{el.word}</h1>
               </Box>
-              <Avatar src={el.src} variant="square" sx={{ height: "100%", width: "100%" }} />
+              <Avatar
+                src={el.src}
+                variant="square"
+                sx={{
+                  height: 450,
+                  width: 750,
+                  borderRadius: "25px",
+                  filter: "blur(3px)",
+                }}
+              />
             </Box>
           );
         })}

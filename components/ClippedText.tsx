@@ -10,8 +10,7 @@ const ClippedText = ({ word, imgSrc, fontSize }: textProps) => {
         backgroundImage: `url(${imgSrc})`,
         backgroundSize: "cover",
         backgroundClip: "text",
-        // @ts-ignore
-        "-webkit-background-clip": "text",
+        WebkitBackgroundClip: "text",
         color: "transparent",
         fontSize: fontSize,
       }}

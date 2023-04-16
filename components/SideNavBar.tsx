@@ -4,6 +4,7 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import LaptopIcon from "@mui/icons-material/Laptop";
+import { Avatar, ClickAwayListener, IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -17,10 +18,7 @@ import Typography from "@mui/material/Typography";
 import { CSSObject, Theme, styled } from "@mui/material/styles";
 import Link from "next/link";
 import React, { useState } from "react";
-import { MOBILE_BREAKPOINT } from "./common/Constants";
 import useDeviceSize from "./common/CustomHooks";
-import { Avatar, ClickAwayListener, IconButton } from "@mui/material";
-import AnimatedText from "./AnimatedText";
 
 const drawerWidth = 250;
 

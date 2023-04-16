@@ -3,6 +3,7 @@ import Head from "next/head";
 import SideHero from "../components/SideHero";
 import SideNavBar from "../components/SideNavBar";
 import styles from "../styles/Home.module.css";
+import AnimatedClippedText from "../components/AnimatedClippedText";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       </Head>
       <SideNavBar />
       <Box px={4}>
+        <Box textAlign={"center"}>
+          <AnimatedClippedText fontSize="5rem" word="Welcome to my Blog" imgSrc="clipHero.jpg" />
+        </Box>
         <Grid container>
           <Grid item sm={6} xs={12}>
             for card
