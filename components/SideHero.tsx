@@ -26,7 +26,7 @@ const SideHero = () => {
       <Carousel>
         {carouselImages.map((el) => {
           return (
-            <Box position={"relative"}>
+            <Box position={"relative"} key={el.word + +new Date()}>
               <Box
                 position={"absolute"}
                 left={"50%"}
