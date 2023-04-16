@@ -20,7 +20,7 @@ export default function Home() {
         </Box>
         <Grid container>
           <Grid item sm={6} xs={12}>
-            for card
+            Work in progress
           </Grid>
           <Grid item sm={6} xs={12}>
             <SideHero />

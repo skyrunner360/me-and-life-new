@@ -1,9 +1,9 @@
 import ArticleIcon from "@mui/icons-material/Article";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import LaptopIcon from "@mui/icons-material/Laptop";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import { Avatar, ClickAwayListener, IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -18,9 +18,9 @@ import Typography from "@mui/material/Typography";
 import { CSSObject, Theme, styled } from "@mui/material/styles";
 import Link from "next/link";
 import React, { useState } from "react";
-import useDeviceSize from "./common/CustomHooks";
 import ClippedText from "./ClippedText";
 import { MOBILE_BREAKPOINT } from "./common/Constants";
+import useDeviceSize from "./common/CustomHooks";
 
 const drawerWidth = 250;
 
@@ -130,7 +130,7 @@ const SideNavBar = () => {
             {
               title: "Life Update Blogs",
               desc: `Blogs on Major Life Events.`,
-              icon: <EmojiEventsIcon />,
+              icon: <LocalActivityIcon />,
               path: "/lifeBlogs",
             },
             {
