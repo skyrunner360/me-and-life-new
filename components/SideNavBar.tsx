@@ -104,7 +104,8 @@ const SideNavBar = () => {
             },
 
             {
-              title: "About Rishi",
+              title: "About Me",
+              desc: "About who is Rishi?",
               icon: <InfoIcon />,
               path: "/about",
               need_redirect: false,
@@ -120,7 +121,7 @@ const SideNavBar = () => {
 
             {
               title: "Tech Blogs",
-              desc: "Blogs for discussing Technology",
+              desc: "Blogs for discussing Technology.",
               icon: <LaptopIcon />,
               path: "/techBlogs",
               need_redirect: false,
@@ -128,13 +129,13 @@ const SideNavBar = () => {
 
             {
               title: "Life Update Blogs",
-              desc: `Blogs on Major Life Events`,
+              desc: `Blogs on Major Life Events.`,
               icon: <EmojiEventsIcon />,
               path: "/lifeBlogs",
             },
             {
               title: "Writings",
-              desc: `Writings to let out my thoughts`,
+              desc: `Writings to let out my thoughts.`,
               icon: <ArticleIcon />,
               path: "/writings",
             },
