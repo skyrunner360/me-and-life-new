@@ -7,6 +7,7 @@ import SideHero from "../components/SideHero";
 import SideNavBar from "../components/SideNavBar";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
+import ClippedText from "../components/ClippedText";
 
 export default function Home() {
   return (
@@ -24,12 +25,14 @@ export default function Home() {
           <Grid item sm={6} xs={12}>
             <Grid container>
               <Grid item sm={5}>
-                <Box>
-                  <Box className={styles.heroImg}></Box>
-                </Box>
+                <Box className={styles.heroImg}></Box>
               </Grid>
               <Grid item sm={7} p={1}>
-                <AnimatedText word="Hi I'm Rishi Mathur" component={"h1"} />
+                <ClippedText
+                  word="Hi! I'm Rishi Mathur"
+                  fontSize="2rem"
+                  imgSrc="carousel1_bkp.jpg"
+                />
                 <Box></Box>
               </Grid>
             </Grid>
