@@ -19,6 +19,7 @@ import { CSSObject, Theme, styled } from "@mui/material/styles";
 import Link from "next/link";
 import React, { useState } from "react";
 import useDeviceSize from "./common/CustomHooks";
+import ClippedText from "./ClippedText";
 
 const drawerWidth = 250;
 
@@ -229,7 +230,13 @@ const SideNavBar = () => {
           <DrawerCustom variant="permanent" anchor="right" open={open} onClose={handleDrawerClose}>
             <DrawerHeader>
               <Box display={"flex"} alignItems={"center"}>
-                {open && <Typography variant="body1">Welcome to Me and Life</Typography>}
+                {open && (
+                  <ClippedText
+                    word="Welcome to Me and Life"
+                    imgSrc="carousel1_bkp.jpg"
+                    fontSize="1.3rem"
+                  />
+                )}
                 <IconButton onClick={toggleDrawer}>
                   <Avatar src={"menuIcon.jpg"} variant="rounded" />
                 </IconButton>
