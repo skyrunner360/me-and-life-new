@@ -1,12 +1,10 @@
+import { Box, Grid } from "@mui/material";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import SideHero from "../components/SideHero";
 import SideNavBar from "../components/SideNavBar";
-import { Avatar, Box, Grid, Typography } from "@mui/material";
-import AnimatedText from "../components/AnimatedText";
-import Carousel from "../components/Carousel/Carousel";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const carouselImages = [{ src: "menuIcon.jpg" }, { src: "mountains.svg" }];
   return (
     <div className={styles.container}>
       <Head>
@@ -20,13 +18,7 @@ export default function Home() {
             for card
           </Grid>
           <Grid item sm={6} xs={12}>
-            <Carousel>
-              {carouselImages.map((el) => {
-                return (
-                  <Avatar src={el.src} variant="square" sx={{ height: "100%", width: "100%" }} />
-                );
-              })}
-            </Carousel>
+            <SideHero />
           </Grid>
         </Grid>
       </Box>

@@ -4,7 +4,9 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import MobileStepper from "@mui/material/MobileStepper";
 import { MouseEvent, useState } from "react";
+// @ts-ignore
 import SwipeableViews from "react-swipeable-views-react-18-fix";
+// @ts-ignore
 import { autoPlay } from "react-swipeable-views-utils";
 
 const Carousel = (props: any) => {
@@ -29,7 +31,12 @@ const Carousel = (props: any) => {
 
   return (
     <Box position={"relative"}>
-      <AutoPlaySwipeableViews index={activeStep} onChangeIndex={handleStepChange} enableMouseEvents>
+      <AutoPlaySwipeableViews
+        interval={6000}
+        index={activeStep}
+        onChangeIndex={handleStepChange}
+        enableMouseEvents
+      >
         {children}
       </AutoPlaySwipeableViews>
       <Box
