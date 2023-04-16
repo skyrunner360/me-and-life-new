@@ -20,6 +20,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import useDeviceSize from "./common/CustomHooks";
 import ClippedText from "./ClippedText";
+import { MOBILE_BREAKPOINT } from "./common/Constants";
 
 const drawerWidth = 250;
 
@@ -226,8 +227,51 @@ const SideNavBar = () => {
   return (
     <>
       <Box>
-        <ClickAwayListener onClickAway={handleDrawerClose}>
-          <DrawerCustom variant="permanent" anchor="right" open={open} onClose={handleDrawerClose}>
+        {windowWidth <= MOBILE_BREAKPOINT && (
+          <Box textAlign={"right"}>
+            <IconButton onClick={toggleDrawer}>
+              <Avatar src={"menuIcon.jpg"} variant="rounded" />
+            </IconButton>
+          </Box>
+        )}
+        {windowWidth > MOBILE_BREAKPOINT ? (
+          <ClickAwayListener onClickAway={handleDrawerClose}>
+            <DrawerCustom
+              variant="permanent"
+              anchor="right"
+              open={open}
+              onClose={handleDrawerClose}
+            >
+              <DrawerHeader>
+                <Box display={"flex"} alignItems={"center"}>
+                  {open && (
+                    <ClippedText
+                      word="Welcome to Me and Life"
+                      imgSrc="carousel1_bkp.jpg"
+                      fontSize="1.3rem"
+                    />
+                  )}
+                  <IconButton onClick={toggleDrawer}>
+                    <Avatar src={"menuIcon.jpg"} variant="rounded" />
+                  </IconButton>
+                </Box>
+              </DrawerHeader>
+              <DrawerContent />
+            </DrawerCustom>
+          </ClickAwayListener>
+        ) : (
+          <Drawer
+            variant="temporary"
+            anchor="right"
+            open={open}
+            onClose={handleDrawerClose}
+            sx={{
+              "& .MuiDrawer-paper": { backgroundColor: "hsl(0,0%,10%)" },
+              "& .MuiSvgIcon-root, & .MuiTypography-root": {
+                color: "#fff",
+              },
+            }}
+          >
             <DrawerHeader>
               <Box display={"flex"} alignItems={"center"}>
                 {open && (
@@ -243,8 +287,8 @@ const SideNavBar = () => {
               </Box>
             </DrawerHeader>
             <DrawerContent />
-          </DrawerCustom>
-        </ClickAwayListener>
+          </Drawer>
+        )}
       </Box>
     </>
   );
