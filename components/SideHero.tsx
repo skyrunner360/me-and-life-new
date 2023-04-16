@@ -1,22 +1,22 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Image from "next/image";
 import Carousel from "./Carousel/Carousel";
-import AnimatedText from "./AnimatedText";
 
 const SideHero = () => {
   const carouselImages = [
-    { src: "carousel1.jpg", word: "Hello! Stranger 👋", textColor: "#fff" },
+    { src: "/carousel1.jpg", word: "Hello! Stranger 👋", textColor: "#fff" },
     {
-      src: "carousel2.jpg",
+      src: "/carousel2.jpg",
       word: "Welcome to the small world of this Introvert.",
       textColor: "#fff",
     },
     {
-      src: "carousel3.jpg",
+      src: "/carousel3.jpg",
       word: "Here I'll be posting some personal life updates, Some Tech Content and Some Original pieces of Writing.",
       textColor: "#fff",
     },
     {
-      src: "carousel4.jpg",
+      src: "/carousel4.jpg",
       word: "Feel free to explore this Website.",
       textColor: "#fff",
     },
@@ -42,10 +42,12 @@ const SideHero = () => {
               >
                 <h1>{el.word}</h1>
               </Box>
-              <Avatar
+              <Image
+                alt="hero image"
                 src={el.src}
-                variant="square"
-                sx={{
+                width={100}
+                height={100}
+                style={{
                   height: "100%",
                   width: "100%",
                   borderRadius: "25px",

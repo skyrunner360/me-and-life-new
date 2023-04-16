@@ -4,6 +4,7 @@ import SideHero from "../components/SideHero";
 import SideNavBar from "../components/SideNavBar";
 import styles from "../styles/Home.module.css";
 import AnimatedClippedText from "../components/AnimatedClippedText";
+import TrackingBlur from "../components/TrackingBlur";
 
 export default function Home() {
   return (
