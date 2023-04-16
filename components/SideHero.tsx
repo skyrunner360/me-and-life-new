@@ -46,8 +46,8 @@ const SideHero = () => {
                 src={el.src}
                 variant="square"
                 sx={{
-                  height: 450,
-                  width: 750,
+                  height: "100%",
+                  width: "100%",
                   borderRadius: "25px",
                   filter: "blur(3px)",
                 }}

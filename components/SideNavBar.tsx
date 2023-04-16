@@ -245,11 +245,7 @@ const SideNavBar = () => {
               <DrawerHeader>
                 <Box display={"flex"} alignItems={"center"}>
                   {open && (
-                    <ClippedText
-                      word="Welcome to Me and Life"
-                      imgSrc="carousel1_bkp.jpg"
-                      fontSize="1.3rem"
-                    />
+                    <ClippedText word="Me and Life" imgSrc="carousel1_bkp.jpg" fontSize="2rem" />
                   )}
                   <IconButton onClick={toggleDrawer}>
                     <Avatar src={"menuIcon.jpg"} variant="rounded" />
@@ -275,11 +271,7 @@ const SideNavBar = () => {
             <DrawerHeader>
               <Box display={"flex"} alignItems={"center"}>
                 {open && (
-                  <ClippedText
-                    word="Welcome to Me and Life"
-                    imgSrc="carousel1_bkp.jpg"
-                    fontSize="1.3rem"
-                  />
+                  <ClippedText word="Me and Life" imgSrc="carousel1_bkp.jpg" fontSize="2rem" />
                 )}
                 <IconButton onClick={toggleDrawer}>
                   <Avatar src={"menuIcon.jpg"} variant="rounded" />
