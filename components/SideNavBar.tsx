@@ -21,6 +21,7 @@ import React, { useState } from "react";
 import ClippedText from "./ClippedText";
 import { MOBILE_BREAKPOINT } from "./common/Constants";
 import useDeviceSize from "./common/CustomHooks";
+import { useRouter } from "next/router";
 
 const drawerWidth = 250;
 
@@ -79,6 +80,7 @@ const DrawerCustom = styled(Drawer, {
 const SideNavBar = () => {
   const [open, setOpen] = React.useState(false);
   const [hoverIndex, setHoverIndex] = useState<null | number>(null);
+  const { route, pathname } = useRouter();
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -89,7 +91,8 @@ const SideNavBar = () => {
   };
 
   const [expanded, setExpanded] = React.useState<string | false>(false);
-
+  console.log("Path name", pathname);
+  console.log("Route", route);
   const DrawerContent = (props: any) => {
     return (
       <div>
@@ -156,8 +159,7 @@ const SideNavBar = () => {
                           justifyContent: open ? "initial" : "center",
                           px: 2.5,
                         }}
-                        // TODO Later
-                        // selected={matchPath(data?.path + "/*", activePath?.pathname) ? true : false}
+                        selected={data?.path === pathname}
                       >
                         <ListItemIcon
                           sx={{
