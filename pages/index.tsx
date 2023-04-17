@@ -24,10 +24,10 @@ export default function Home() {
         <Grid container>
           <Grid item sm={6} xs={12}>
             <Grid container>
-              <Grid item sm={5} xs={6}>
+              <Grid item sm={5} xs={12}>
                 <Box className={styles.heroImg}></Box>
               </Grid>
-              <Grid item sm={7} p={1} xs={6}>
+              <Grid item sm={7} p={1} xs={12}>
                 <ClippedText
                   word="Hi! I'm Rishi Mathur "
                   fontSize="2rem"
