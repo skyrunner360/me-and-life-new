@@ -34,6 +34,9 @@ const openedMixin = (theme: Theme): CSSObject => ({
   overflowX: "hidden",
   backgroundColor: "hsl(0,0%,10%)",
   color: "#fff",
+  "&$selected": {
+    backgroundColor: "#fff",
+  },
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
@@ -46,6 +49,9 @@ const closedMixin = (theme: Theme): CSSObject => ({
   backgroundColor: "hsl(0,0%,10%)",
   [theme.breakpoints.up("sm")]: {
     width: theme.spacing(8),
+  },
+  "&$selected": {
+    backgroundColor: "#fff",
   },
 });
 
@@ -91,8 +97,6 @@ const SideNavBar = () => {
   };
 
   const [expanded, setExpanded] = React.useState<string | false>(false);
-  console.log("Path name", pathname);
-  console.log("Route", route);
   const DrawerContent = (props: any) => {
     return (
       <div>
@@ -192,6 +196,7 @@ const SideNavBar = () => {
                         justifyContent: open ? "initial" : "center",
                         px: 2.5,
                       }}
+                      selected={data?.path === pathname}
                     >
                       <ListItemIcon
                         sx={{
