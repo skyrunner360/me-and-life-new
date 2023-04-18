@@ -112,7 +112,7 @@ const SideNavBar = () => {
 
             {
               title: "About Me",
-              desc: "About who is Rishi?",
+              desc: "Who is Rishi?",
               icon: <InfoIcon />,
               path: "/about",
               need_redirect: false,
