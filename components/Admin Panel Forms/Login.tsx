@@ -27,6 +27,11 @@ const Login = ({ setIsLoggedin }: LoginProps) => {
               autoComplete="false"
               margin={"normal"}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  checkPassword();
+                }
+              }}
             />
           </FormGroup>
         </form>
