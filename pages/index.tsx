@@ -19,6 +19,7 @@ export default function Home() {
       <SideNavBar />
       <Box px={4}>
         <Box textAlign={"center"}>
+          {/* Test commit */}
           <AnimatedClippedText fontSize="5rem" word="Welcome to my Blog" imgSrc="clipHero.jpg" />
         </Box>
         <Grid container>
