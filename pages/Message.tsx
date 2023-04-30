@@ -24,17 +24,18 @@ const Message = () => {
         </Box>
         <Box p={2}>
           <Typography variant="h2" fontWeight={500} color={"pink"}>
-            Hey, Friend. I'm still here, Whatever you're going through, I'll always listen and be
-            there for you.
+            Hey, Friend. I&apos;m still here, Whatever you&apos;re going through, I&apos;ll always
+            listen and be there for you.
           </Typography>
         </Box>
         <Box>
           <Typography variant="h6" color={"yellowgreen"}>
-            See I've made this to remind you that we may be separated by distance but we're not
-            separated by heart or connection💞. If I can't provide you a hug just{" "}
+            See I&apos;ve made this to remind you that we may be separated by distance but
+            we&apos;re not separated by heart or connection💞. If I can&apos;t provide you a hug
+            just{" "}
             <b>
-              Call me, text me, reach me whenever or however you want and i'll pick up your call
-              even at the middle of the night.
+              Call me, text me, reach me whenever or however you want and I&apos;ll pick up your
+              call even at the middle of the night.
             </b>
           </Typography>
         </Box>
