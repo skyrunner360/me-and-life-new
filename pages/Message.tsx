@@ -55,7 +55,9 @@ const Message = () => {
               )}&type=phone_number&app_absent=0`}
               target="_blank"
             >
-              Hug me back
+              <Button variant="outlined" color="success">
+                Hug me back
+              </Button>
             </Link>
           </Box>
         </Box>
