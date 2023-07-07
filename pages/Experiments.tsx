@@ -7,9 +7,9 @@ const Experiments = () => {
   return (
     <div>
       <Box textAlign={"center"}>
-        <ClippedText word="Hi Skyrunner" imgSrc="mountains.svg" fontSize="5rem" />
+        {/* <ClippedText word="Hi Skyrunner" imgSrc="mountains.svg" fontSize="5rem" /> */}
       </Box>
-      {/* <TrackingBlur /> */}
+      <TrackingBlur />
     </div>
   );
 };
