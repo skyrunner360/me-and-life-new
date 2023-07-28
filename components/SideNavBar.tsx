@@ -85,8 +85,7 @@ const DrawerCustom = styled(Drawer, {
 
 const SideNavBar = () => {
   const [open, setOpen] = React.useState(false);
-  const [hoverIndex, setHoverIndex] = useState<null | number>(null);
-  const { route, pathname } = useRouter();
+  const { pathname } = useRouter();
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -96,7 +95,6 @@ const SideNavBar = () => {
     setOpen(false);
   };
 
-  const [expanded, setExpanded] = React.useState<string | false>(false);
   const DrawerContent = (props: any) => {
     return (
       <div>

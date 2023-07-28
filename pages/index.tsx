@@ -8,41 +8,45 @@ import SideNavBar from "../components/SideNavBar";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import ClippedText from "../components/ClippedText";
+import TrackingBlur from "../components/TrackingBlur";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Me and Life</title>
-        <meta name="description" content="Welcome to Rishi's blog - ME AND LIFE" />
-      </Head>
-      <SideNavBar />
-      <Box px={4}>
-        <Box textAlign={"center"}>
-          {/* Test commit */}
-          <AnimatedClippedText fontSize="5rem" word="Welcome to my Blog" imgSrc="clipHero.jpg" />
-        </Box>
-        <Grid container>
-          <Grid item sm={6} xs={12}>
-            <Grid container>
-              <Grid item sm={5} xs={12}>
-                <Box className={styles.heroImg}></Box>
-              </Grid>
-              <Grid item sm={7} p={1} xs={12}>
-                <ClippedText
-                  word="Hi! I'm Rishi Mathur "
-                  fontSize="2rem"
-                  imgSrc="carousel1_bkp.jpg"
-                />
-                <Box></Box>
+    <>
+      <div className={styles.container}>
+        <TrackingBlur />
+        <Head>
+          <title>Me and Life</title>
+          <meta name="description" content="Welcome to Rishi's blog - ME AND LIFE" />
+        </Head>
+        <SideNavBar />
+        <Box px={4} zIndex={2} position={"relative"}>
+          <Box textAlign={"center"}>
+            {/* Test commit */}
+            <AnimatedClippedText fontSize="5rem" word="Welcome to my Blog" imgSrc="clipHero.jpg" />
+          </Box>
+          <Grid container>
+            <Grid item sm={6} xs={12}>
+              <Grid container>
+                <Grid item sm={5} xs={12}>
+                  <Box className={styles.heroImg}></Box>
+                </Grid>
+                <Grid item sm={7} p={1} xs={12}>
+                  <ClippedText
+                    word="Hi! I'm Rishi Mathur "
+                    fontSize="2rem"
+                    imgSrc="carousel1_bkp.jpg"
+                  />
+                  <Box></Box>
+                </Grid>
               </Grid>
             </Grid>
+            <Grid item sm={6} xs={12}>
+              <SideHero />
+            </Grid>
           </Grid>
-          <Grid item sm={6} xs={12}>
-            <SideHero />
-          </Grid>
-        </Grid>
-      </Box>
-    </div>
+        </Box>
+      </div>
+    </>
   );
 }

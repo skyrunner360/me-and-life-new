@@ -23,23 +23,23 @@ section{
 }
 #blob{
   background-color: white;
-  height: 500px;
+  height: 90px;
   aspect-ratio: 1;
   position: absolute;
   top: 50%;
   left:50%;
   translate: -50% -50%;
   border-radius: 50%;
-  background: linear-gradient(to right,aquamarine,mediumpurple);
+  background: linear-gradient(to right,rgb(194, 235, 241),rgb(50, 222, 238));
   animation: rotate 20s infinite;
-  filter: blur(200px);
+  filter: blur(500px);
 }
 #blur{
   height: 100%;
   width: 100%;
   position: absolute;
   z-index: 2;
-  backdrop-filter: blur(200px);
+  backdrop-filter: blur(500px);
 }
 @keyframes rotate{
   from{
