@@ -34,7 +34,7 @@ export default function Home() {
                     className={styles.floatAnimation}
                     sx={{ height: "100%", width: "100%" }}
                   >
-                    <Image src={"/ikbal 3.svg"} alt="Greet Avatar" fill />
+                    <Image src={"/Ikbal 3.svg"} alt="Greet Avatar" fill />
                   </Box>
                 </Grid>
                 <Grid item sm={7} xs={12}>
