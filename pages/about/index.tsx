@@ -29,7 +29,7 @@ const index = () => {
                 </Box>
                 <Box mt={2}>
                   <Typography>
-                    My Name is <b>Rishi Mathur</b>, Professionally I&apos;m a{" "}
+                    So my name is <b>Rishi Mathur</b> and Professionally I&apos;m a{" "}
                     <i>Front-End Web Developer</i>, primarily working with <i>React.Js</i> and
                     I&apos;m currently learning <i>Next.Js</i> along with some Back-End also.
                   </Typography>
