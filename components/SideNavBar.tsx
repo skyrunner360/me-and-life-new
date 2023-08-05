@@ -232,10 +232,10 @@ const SideNavBar = () => {
   const [windowWidth] = useDeviceSize();
   return (
     <>
-      <Box>
+      <Box id="Sidebar">
         {windowWidth <= MOBILE_BREAKPOINT && (
           <Box textAlign={"right"}>
-            <IconButton onClick={toggleDrawer}>
+            <IconButton onClick={toggleDrawer} sx={{ position: "relative", zIndex: 4 }}>
               <Avatar src={"menuIcon.jpg"} variant="rounded" />
             </IconButton>
           </Box>
