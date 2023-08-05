@@ -25,14 +25,14 @@ export default function Home() {
           <Box textAlign={"center"}>
             <AnimatedClippedText fontSize="5rem" word="Me and Life" imgSrc="/clipHero.jpg" />
           </Box>
-          <Grid container height={"100%"}>
+          <Grid container>
             <Grid item sm={6} pt={"7rem"} xs={12}>
-              <Grid container height={"100%"}>
+              <Grid container>
                 <Grid item sm={5} xs={12} height={"90%"}>
                   <Box
                     position={"relative"}
                     className={styles.floatAnimation}
-                    sx={{ height: "100%", width: "100%" }}
+                    sx={{ height: "30rem", width: "100%" }}
                   >
                     <Image src={"/Ikbal 3.svg"} alt="Greet Avatar" fill />
                   </Box>
@@ -72,7 +72,10 @@ export default function Home() {
               </Grid>
             </Grid>
             <Grid item sm={6} xs={12} p={2}>
-              <Box position={"relative"} sx={{ height: "35rem", width: "35rem" }}>
+              <Box
+                position={"relative"}
+                sx={{ height: { sm: "35rem", xs: "15rem" }, width: { sm: "35rem", xs: "15rem" } }}
+              >
                 <Image src={"/Other 03.svg"} alt="Other Icon" fill />
               </Box>
             </Grid>
