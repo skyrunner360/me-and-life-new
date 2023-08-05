@@ -5,7 +5,7 @@ import ClippedText from "../../components/ClippedText";
 import Head from "next/head";
 import Grid from "@mui/material/Grid";
 import homeStyles from "../../styles/Home.module.css";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const index = () => {
   return (

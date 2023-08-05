@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "cross-env NEXT_PUBLIC_FRAMEWORK=next NODE_ENV=development next dev",
+    "build": "cross-env NEXT_PUBLIC_FRAMEWORK=next next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -23,6 +23,7 @@
     "axios": "^1.3.3",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
     "jsonwebtoken": "^9.0.0",
