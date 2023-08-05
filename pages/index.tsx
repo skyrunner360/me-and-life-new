@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
 import Head from "next/head";
 import AnimatedBlob from "../components/AnimatedBlob";
 import AnimatedClippedText from "../components/AnimatedClippedText";
@@ -25,7 +25,7 @@ export default function Home() {
           <Box textAlign={"center"}>
             <AnimatedClippedText fontSize="5rem" word="Me and Life" imgSrc="/clipHero.jpg" />
           </Box>
-          <Grid container>
+          <Grid container height={"100%"}>
             <Grid item sm={6} pt={"7rem"} xs={12}>
               <Grid container height={"100%"}>
                 <Grid item sm={5} xs={12} height={"90%"}>
@@ -40,7 +40,7 @@ export default function Home() {
                 <Grid item sm={7} xs={12}>
                   <ClippedText
                     word="Welcome to My Blog!"
-                    fontSize="2rem"
+                    fontSize="3rem"
                     imgSrc="/carousel1_bkp.jpg"
                   />
                   <Box py={1}>
