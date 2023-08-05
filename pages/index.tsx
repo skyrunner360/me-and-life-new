@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import Head from "next/head";
 import AnimatedBlob from "../components/AnimatedBlob";
 import AnimatedClippedText from "../components/AnimatedClippedText";
@@ -9,6 +9,7 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import ClippedText from "../components/ClippedText";
 import TrackingBlur from "../components/TrackingBlur";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -25,14 +26,18 @@ export default function Home() {
             <AnimatedClippedText fontSize="5rem" word="Me and Life" imgSrc="/clipHero.jpg" />
           </Box>
           <Grid container>
-            <Grid item sm={6} p={1} xs={12}>
+            <Grid item sm={6} pt={"7rem"} xs={12}>
               <Grid container height={"100%"}>
-                <Grid item sm={4} xs={12} height={"50%"}>
-                  <Box position={"relative"} sx={{ height: "100%", width: "100%" }}>
+                <Grid item sm={5} xs={12} height={"90%"}>
+                  <Box
+                    position={"relative"}
+                    className={styles.floatAnimation}
+                    sx={{ height: "100%", width: "100%" }}
+                  >
                     <Image src={"/ikbal 3.svg"} alt="Greet Avatar" fill />
                   </Box>
                 </Grid>
-                <Grid item sm={8} xs={12}>
+                <Grid item sm={7} xs={12}>
                   <ClippedText
                     word="Welcome to My Blog!"
                     fontSize="2rem"
@@ -52,6 +57,16 @@ export default function Home() {
                   </Box>
                   <Box py={1}>
                     <Typography>Feel free to explore this blog.</Typography>
+                  </Box>
+                  <Box py={4}>
+                    <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
+                      <Link href={"/about"}>
+                        <Button className={styles.neonButton}>Tech Blogs</Button>
+                      </Link>
+                      <Link href={"/writings"}>
+                        <Button className={styles.neonButton}>Writings</Button>
+                      </Link>
+                    </Stack>
                   </Box>
                 </Grid>
               </Grid>

@@ -9,6 +9,10 @@ body {
   background: hsl(0,0%,12%);
   overflow-x: hidden;
 }
+:root {
+  --clr-neon: #CFA0E0;
+  --clr-bg: #ffff;
+}
 /* html{
   color-scheme: dark light;
 } */
