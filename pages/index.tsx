@@ -60,11 +60,11 @@ export default function Home() {
                   </Box>
                   <Box py={4}>
                     <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
-                      <Link href={"/about"}>
-                        <Button className={styles.neonButton}>Tech Blogs</Button>
+                      <Link href={"/about"} className={styles.neonButton}>
+                        Tech Blogs
                       </Link>
-                      <Link href={"/writings"}>
-                        <Button className={styles.neonButton}>Writings</Button>
+                      <Link href={"/writings"} className={styles.neonButton}>
+                        Writings
                       </Link>
                     </Stack>
                   </Box>
