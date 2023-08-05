@@ -60,7 +60,7 @@ export default function Home() {
                   </Box>
                   <Box py={4}>
                     <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
-                      <Link href={"/about"} className={styles.neonButton}>
+                      <Link href={"/techBlogs"} className={styles.neonButton}>
                         Tech Blogs
                       </Link>
                       <Link href={"/writings"} className={styles.neonButton}>
