@@ -56,7 +56,7 @@ const index = () => {
               </Box>
             </Grid>
             <Grid item sm={6} xs={12}>
-              <Box mx={"12rem"}>
+              <Box mx={{ sm: "12rem", xs: "2rem" }}>
                 <div className={homeStyles.heroImg} />
               </Box>
             </Grid>
