@@ -45,7 +45,7 @@ export default function Home() {
                   />
                   <Box py={1}>
                     <Typography variant="h6" fontWeight={500}>
-                      Hi! 👋 I&apos;m Rishi Mathur
+                      Hi! 👋 I&apos;m Rishi
                     </Typography>
                   </Box>
                   <Box>
