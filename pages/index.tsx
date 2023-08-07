@@ -1,15 +1,15 @@
-import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import Head from "next/head";
-import AnimatedBlob from "../components/AnimatedBlob";
-import AnimatedClippedText from "../components/AnimatedClippedText";
-import AnimatedText from "../components/AnimatedText";
-import SideHero from "../components/SideHero";
-import SideNavBar from "../components/SideNavBar";
-import styles from "../styles/Home.module.css";
 import Image from "next/image";
-import ClippedText from "../components/ClippedText";
-import TrackingBlur from "../components/TrackingBlur";
 import Link from "next/link";
+import AnimatedClippedText from "../components/AnimatedClippedText";
+import ClippedText from "../components/ClippedText";
+import SideNavBar from "../components/SideNavBar";
+import TrackingBlur from "../components/TrackingBlur";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (

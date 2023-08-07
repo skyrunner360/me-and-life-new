@@ -1,12 +1,10 @@
-import React from "react";
-import Layout from "../../components/Layout";
 import Box from "@mui/material/Box";
-import ClippedText from "../../components/ClippedText";
-import Head from "next/head";
 import Grid from "@mui/material/Grid";
-import homeStyles from "../../styles/Home.module.css";
 import Typography from "@mui/material/Typography";
+import Head from "next/head";
 import AnimatedClippedText from "../../components/AnimatedClippedText";
+import Layout from "../../components/Layout";
+import homeStyles from "../../styles/Home.module.css";
 
 const index = () => {
   return (
