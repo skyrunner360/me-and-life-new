@@ -2,21 +2,22 @@
 import { useEffect } from "react";
 
 const TrackingBlur = () => {
-  const followMouse = () => {
-    const blob = document.getElementById("blob");
-    document.body.onpointermove = (ev) => {
-      const { clientX, clientY } = ev;
-      blob?.animate(
-        {
-          left: `${clientX}px`,
-          top: `${clientY}px`,
-        },
-        { duration: 3000, fill: "forwards" }
-      );
-    };
+  const pointerMove = (ev) => {
+    const { clientX, clientY } = ev;
+    const blob = window?.document?.getElementById("blob");
+    blob?.animate(
+      {
+        left: `${clientX}px`,
+        top: `${clientY}px`,
+      },
+      { duration: 3000, fill: "forwards" }
+    );
   };
   useEffect(() => {
-    followMouse();
+    window?.document?.body?.addEventListener("pointermove", pointerMove);
+    return () => {
+      window?.document?.body?.removeEventListener("pointermove", pointerMove);
+    };
   }, []);
 
   return (
