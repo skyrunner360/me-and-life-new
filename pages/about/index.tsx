@@ -6,6 +6,7 @@ import Head from "next/head";
 import Grid from "@mui/material/Grid";
 import homeStyles from "../../styles/Home.module.css";
 import Typography from "@mui/material/Typography";
+import AnimatedClippedText from "../../components/AnimatedClippedText";
 
 const index = () => {
   return (
@@ -17,7 +18,7 @@ const index = () => {
       <Layout>
         <Box>
           <Box textAlign={"center"}>
-            <ClippedText word="About Rishi" fontSize="5rem" imgSrc="/carousel1_bkp.jpg" />
+            <AnimatedClippedText fontSize="5rem" word="About Rishi" imgSrc="/clipHero.jpg" />
           </Box>
           <Grid container mt={"7rem"}>
             <Grid item sm={6} xs={12}>
