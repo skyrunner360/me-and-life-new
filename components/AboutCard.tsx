@@ -32,11 +32,15 @@ const AboutCard = () => {
     element?.style?.setProperty("--rotateX", offsetX + "deg");
     element?.style?.setProperty("--rotateY", -1 * offsetY + "deg");
   };
+  const isTouchDevice = () => {
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  };
   useEffect(() => {
-    window?.document?.addEventListener("mousemove", (e) => {
-      const pre = window.document.getElementById("aboutContainer");
-      rotateElement(e, pre);
-    });
+    !isTouchDevice() &&
+      window?.document?.addEventListener("mousemove", (e) => {
+        const pre = window.document.getElementById("aboutContainer");
+        rotateElement(e, pre);
+      });
     return () => {
       window?.document?.removeEventListener("mousemove", (e) => {
         const pre = window.document.getElementById("aboutContainer");
