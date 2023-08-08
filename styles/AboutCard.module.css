@@ -1,0 +1,74 @@
+
+  
+  .container {
+    background: var(--primaryBg);
+    background-blend-mode: multiply;
+    min-block-size: 100dvh;
+    display: grid;
+    place-items: center;
+  }
+  
+  .card {
+    --selector: var(--pink);
+    --property: var(--teal);
+    --punctuation: var(--white);
+    --undefined: var(--white);
+  
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--undefined);
+    background: hsl(222, 45%, 7%);
+    padding: 2rem;
+    border-radius: 1rem;
+  
+    position: relative;
+  
+    transform-style: preserve-3d;
+    transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+  }
+  
+  .card > * {
+    text-shadow: 0 0 0.3em currentColor;
+  }
+  
+  .card::before,
+  .card::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+  }
+  
+  /* shadow */
+  .card::before {
+    inset: 0.75rem;
+    border-radius: inherit;
+    background: black;
+    z-index: -1;
+    transform: translateZ(-50px);
+    filter: blur(15px);
+    opacity: 0.5;
+  }
+  
+  /* gradient thingy */
+  .card::after {
+    z-index: -2;
+    inset: -1rem;
+    background: linear-gradient(-45deg,#464386 ,var(--clr-neon) );
+    transform: translateZ(-50px);
+  }
+  
+  .selector {
+    color: var(--selector);
+  }
+  
+  .property {
+    color: var(--property);
+  }
+  
+  .punctuation {
+    color: var(--punctuation);
+  }
+  
+  .property + .punctuation {
+    color: var(--property);
+  }

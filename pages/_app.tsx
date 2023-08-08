@@ -9,6 +9,11 @@ import { createTheme, ThemeProvider } from "@mui/material";
 const queryClient = new QueryClient();
 
 const globalTheme = createTheme({
+  palette: {
+    primary: { main: "#fff" },
+    secondary: { main: "hsl(0,0%,12%)" },
+    info: { main: "#CFA0E0" },
+  },
   components: {
     MuiListItemButton: {
       styleOverrides: {

@@ -10,8 +10,12 @@ body {
   overflow-x: hidden;
 }
 :root {
+  --primaryBg: hsl(0,0%,12%);
   --clr-neon: #CFA0E0;
   --clr-bg: #ffff;
+  --pink: hsl(338, 70%, 55%);
+  --teal: hsl(183, 70%, 62%);
+  --white: hsl(334, 7%, 95%);
 }
 /* html{
   color-scheme: dark light;
