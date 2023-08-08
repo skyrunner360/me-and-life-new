@@ -15,7 +15,9 @@ const index = () => {
       <Layout>
         <Box textAlign={"center"}>
           <AnimatedClippedText fontSize="5rem" word="Contact Me" imgSrc="/clipHero.jpg" />
-          <AboutCard />
+          <Box sx={{ mx: "4rem" }}>
+            <AboutCard />
+          </Box>
         </Box>
       </Layout>
     </>
