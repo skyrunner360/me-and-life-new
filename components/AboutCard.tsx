@@ -61,7 +61,7 @@ const AboutCard = () => {
           <Grid item sm={6} xs={12}>
             <Box
               position={"relative"}
-              sx={{ height: { sm: "35rem", xs: "15rem" }, width: { sm: "35rem", xs: "15rem" } }}
+              sx={{ height: { sm: "25rem", xs: "15rem" }, width: { sm: "35rem", xs: "15rem" } }}
             >
               <Image src={"/Other 02.svg"} alt="Other Icon" fill />
             </Box>
