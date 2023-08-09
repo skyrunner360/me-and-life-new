@@ -107,6 +107,26 @@ const SideNavBar = () => {
               path: "/",
               need_redirect: false,
             },
+            {
+              title: "Writings",
+              desc: `Writings to let out my thoughts.`,
+              icon: <ArticleIcon />,
+              path: "/writings",
+            },
+            {
+              title: "Tech Blogs",
+              desc: "Blogs for discussing Technology.",
+              icon: <LaptopIcon />,
+              path: "/techBlogs",
+              need_redirect: false,
+            },
+
+            {
+              title: "Life Update Blogs",
+              desc: `Blogs on Major Life Events.`,
+              icon: <LocalActivityIcon />,
+              path: "/lifeBlogs",
+            },
 
             {
               title: "About Me",
@@ -122,27 +142,6 @@ const SideNavBar = () => {
               icon: <ContactPageIcon />,
               path: "/contact",
               need_redirect: false,
-            },
-
-            {
-              title: "Tech Blogs",
-              desc: "Blogs for discussing Technology.",
-              icon: <LaptopIcon />,
-              path: "/techBlogs",
-              need_redirect: false,
-            },
-
-            {
-              title: "Life Update Blogs",
-              desc: `Blogs on Major Life Events.`,
-              icon: <LocalActivityIcon />,
-              path: "/lifeBlogs",
-            },
-            {
-              title: "Writings",
-              desc: `Writings to let out my thoughts.`,
-              icon: <ArticleIcon />,
-              path: "/writings",
             },
           ].map((data, index) => {
             return (
