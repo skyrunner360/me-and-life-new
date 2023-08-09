@@ -36,7 +36,7 @@ const Login = ({ setIsLoggedin }: LoginProps) => {
           </FormGroup>
         </form>
         <Box m={1}>
-          <Button variant="contained" color="primary" onClick={checkPassword}>
+          <Button variant="contained" color="info" onClick={checkPassword}>
             Sign in
           </Button>
         </Box>

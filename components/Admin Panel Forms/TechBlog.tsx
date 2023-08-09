@@ -7,19 +7,7 @@ import { useState } from "react";
 import { CommonModal } from "../common/CommonComponents";
 import { AddNewModalContent, PostCard } from "./AdminHelperComponents";
 import { addTech, changeTech, deleteTech, getTechBlog } from "./AdminPanelLogic";
-
-interface techBlogRes {
-  _id: number;
-  sno: number;
-  title: string;
-  content: string;
-  category: string;
-  author: string;
-  slug: string;
-  timeStamp: string;
-  img: string;
-  views: number;
-}
+import { commonPostResType } from "../../types/CommonTypes";
 
 const TechBlog = () => {
   const queryClient = useQueryClient();
@@ -70,7 +58,7 @@ const TechBlog = () => {
           All Tech Blog posts{" "}
         </Typography>
         <Box maxHeight={"90vh"} overflow="auto">
-          {data.data.map((elem: techBlogRes) => {
+          {data.data.map((elem: commonPostResType) => {
             return (
               <PostCard
                 key={elem.slug}
@@ -84,7 +72,9 @@ const TechBlog = () => {
           })}
         </Box>
         <Box textAlign={"right"} p={1}>
-          <Button onClick={() => setOpenAddNewModal(true)}>Add new</Button>
+          <Button color="info" onClick={() => setOpenAddNewModal(true)}>
+            Add new
+          </Button>
         </Box>
       </Box>
       <CommonModal open={openAddNewModal} onClose={() => setOpenAddNewModal(false)}>

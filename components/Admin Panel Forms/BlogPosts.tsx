@@ -7,24 +7,8 @@ import { useState } from "react";
 import { CommonModal } from "../common/CommonComponents";
 import { AddNewModalContent, PostCard } from "./AdminHelperComponents";
 import { addBlog, changeBlog, deleteBlog, getBlogs } from "./AdminPanelLogic";
+import { commonPostResType } from "../../types/CommonTypes";
 
-interface blogPostsResponse {
-  _id: number;
-  sno: number;
-  title: string;
-  content: string;
-  category: string;
-  author: string;
-  slug: string;
-  timeStamp: string;
-  img: string;
-  img2: string;
-  img3: string;
-  img4: string;
-  img5: string;
-  img6: string;
-  views: number;
-}
 const BlogPosts = () => {
   const queryClient = useQueryClient();
 
@@ -78,7 +62,7 @@ const BlogPosts = () => {
           All Blog posts{" "}
         </Typography>
         <Box maxHeight={"90vh"} overflow="auto">
-          {data.data.map((elem: blogPostsResponse) => {
+          {data.data.map((elem: commonPostResType) => {
             return (
               <PostCard
                 key={elem.slug}
@@ -92,7 +76,9 @@ const BlogPosts = () => {
           })}
         </Box>
         <Box textAlign={"right"} p={1}>
-          <Button onClick={() => setOpenAddNewModal(true)}>Add new</Button>
+          <Button color="info" onClick={() => setOpenAddNewModal(true)}>
+            Add new
+          </Button>
         </Box>
       </Box>
 

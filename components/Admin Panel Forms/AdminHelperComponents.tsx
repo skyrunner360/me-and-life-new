@@ -6,25 +6,10 @@ import Typography from "@mui/material/Typography";
 import moment from "moment";
 import { MouseEventHandler, useState } from "react";
 import { CommonModal, MessagesModal } from "../common/CommonComponents";
-interface commonPostRes {
-  _id: number;
-  sno: number;
-  title: string;
-  content: string;
-  category: string;
-  author: string;
-  slug: string;
-  timeStamp: string;
-  img?: string;
-  img2?: string;
-  img3?: string;
-  img4?: string;
-  img5?: string;
-  img6?: string;
-  views: number;
-}
+import { commonPostResType } from "../../types/CommonTypes";
+
 interface postCardProps {
-  elem: commonPostRes;
+  elem: commonPostResType;
   onEdit: Function;
   onDelete: MouseEventHandler;
 }
@@ -68,7 +53,7 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
 };
 
 interface EditModalContentProps {
-  elem: commonPostRes;
+  elem: commonPostResType;
   onEdit: Function;
   closeModal: Function;
 }

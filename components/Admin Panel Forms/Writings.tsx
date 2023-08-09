@@ -7,19 +7,7 @@ import { useState } from "react";
 import { CommonModal } from "../common/CommonComponents";
 import { AddNewModalContent, PostCard } from "./AdminHelperComponents";
 import { addWriting, changeWriting, deleteWriting, getWritings } from "./AdminPanelLogic";
-
-interface writingsRes {
-  _id: number;
-  sno: number;
-  title: string;
-  content: string;
-  category: string;
-  author: string;
-  slug: string;
-  timeStamp: string;
-  img: string;
-  views: number;
-}
+import { commonPostResType } from "../../types/CommonTypes";
 
 const Writings = () => {
   const queryClient = useQueryClient();
@@ -65,7 +53,7 @@ const Writings = () => {
       <Box>
         <Typography variant="h2">All Writings </Typography>
         <Box maxHeight={"90vh"} overflow="auto">
-          {data.data.map((elem: writingsRes) => {
+          {data.data.map((elem: commonPostResType) => {
             return (
               <PostCard
                 key={elem.slug}
@@ -79,7 +67,9 @@ const Writings = () => {
           })}
         </Box>
         <Box textAlign={"right"} p={1}>
-          <Button onClick={() => setOpenAddNewModal(true)}>Add new</Button>
+          <Button color="info" onClick={() => setOpenAddNewModal(true)}>
+            Add new
+          </Button>
         </Box>
       </Box>
       <CommonModal open={openAddNewModal} onClose={() => setOpenAddNewModal(false)}>
