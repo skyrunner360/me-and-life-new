@@ -1,17 +1,17 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import Head from "next/head";
-import { getWritings } from "../../components/Admin Panel Forms/AdminPanelLogic";
+import { getBlogs, getTechBlog } from "../../components/Admin Panel Forms/AdminPanelLogic";
 import AnimatedClippedText from "../../components/AnimatedClippedText";
 import CardsList from "../../components/CardsList";
 import Layout from "../../components/Layout";
 
-const Writings = () => {
-  const writingsQuery = useQuery({
-    queryKey: ["writings"],
-    queryFn: ({ queryKey }) => getWritings().then((res) => res.data),
+const LifeBlogs = () => {
+  const blogsQuery = useQuery({
+    queryKey: ["blogs"],
+    queryFn: ({ queryKey }) => getBlogs().then((res) => res.data),
   });
-  const { data, isLoading, error } = writingsQuery;
+  const { data, isLoading, error } = blogsQuery;
   if (error) {
     return (
       <Box>
@@ -22,15 +22,15 @@ const Writings = () => {
   return (
     <>
       <Head>
-        <title>Me and Life - Writings</title>
-        <meta name="description" content="Writings by Rishi Mathur" />
+        <title>Me and Life - Life Update Blogs</title>
+        <meta name="description" content="Life Update Blogs of Rishi Mathur" />
       </Head>
       <Layout>
         <Box>
           <Box textAlign={"center"}>
-            <AnimatedClippedText fontSize="5rem" word="Writings" imgSrc="/clipHero.jpg" />
+            <AnimatedClippedText fontSize="5rem" word="Life Update Blogs" imgSrc="/clipHero.jpg" />
             <Box mt={4}>
-              <Typography variant="h5">These are all of my writings</Typography>
+              <Typography variant="h5">These are all of my life update Blogs</Typography>
             </Box>
           </Box>
           <Box mt={"7rem"}>
@@ -47,4 +47,4 @@ const Writings = () => {
   );
 };
 
-export default Writings;
+export default LifeBlogs;
