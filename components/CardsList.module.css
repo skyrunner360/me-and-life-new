@@ -25,7 +25,7 @@
     min-width: 250px;
     padding: 1.5rem;
     border-radius: 16px;
-    background: #17141d;
+    background: #0A0F1A;
     box-shadow: -1rem 0 3rem #000;
     display: flex;
     flex-direction: column;
@@ -70,7 +70,7 @@
 }
 
 .cardHeader h2:hover {
-    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    background: linear-gradient(-50deg,#464386 ,var(--clr-neon) );
     text-shadow: none;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -133,7 +133,7 @@
     margin-bottom: 0;
 }
 
-.tags a {
+.tags span {
     font-style: normal;
     font-weight: 700;
     font-size: .5rem;
@@ -146,8 +146,8 @@
     position: relative;
 }
 
-.tags a:hover {
-    background: linear-gradient(90deg,#ff8a00,#e52e71);
+.tags span:hover {
+    background: linear-gradient(90deg,#464386 ,var(--clr-neon) );
     text-shadow: none;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;

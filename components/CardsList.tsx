@@ -12,6 +12,7 @@ const CardsList = ({ data }: cardsListProps) => {
     <>
       <Box className={Styles.cardList}>
         {data?.map((elem, i) => {
+          const allslugs = elem?.slug.split("-");
           return (
             <>
               <article className={Styles.card}>
@@ -34,7 +35,9 @@ const CardsList = ({ data }: cardsListProps) => {
                   </div>
                 </div>
                 <div className={Styles.tags}>
-                  <a href="#">html</a>
+                  {allslugs.map((word) => (
+                    <span key={word + +new Date()}>{word}</span>
+                  ))}
                 </div>
               </article>
             </>
