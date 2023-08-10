@@ -12,6 +12,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import EmailIcon from "@mui/icons-material/Email";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 const AboutCard = () => {
   const rotateElement = (event: MouseEvent, element: HTMLElement | null) => {
@@ -90,6 +91,16 @@ const AboutCard = () => {
                   </Button>
                 </Link>
 
+                <Link href={"https://twitter.com/Skyrunner360"} target="_blank">
+                  <Button
+                    size="small"
+                    sx={{ textTransform: "none" }}
+                    startIcon={<TwitterIcon fontSize="large" />}
+                    color="info"
+                  >
+                    @Skyrunner360
+                  </Button>
+                </Link>
                 <Link
                   href={"https://www.youtube.com/channel/UCCPZDCXDNY2tvec9xb6Ce9A"}
                   target="_blank"
