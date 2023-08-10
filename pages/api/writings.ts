@@ -4,6 +4,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import authenticate from "../../middleware/authenticateToken";
 import connectDb from "../../middleware/mongoose";
 import WritingsDb from "./schemas/writingsSchema";
+import { Types } from "mongoose";
 interface Data {
   _id?: number;
   message?: string;
@@ -11,7 +12,8 @@ interface Data {
   accessToken?: string;
 }
 interface responseData {
-  _id: number;
+  _doc: Types.Subdocument;
+  _id: number | Types.ObjectId;
   sno: number;
   title: string;
   content: string;
@@ -31,8 +33,19 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     try {
       let slug = req.query.slug;
       if (slug === undefined) {
-        let db = await WritingsDb.find();
-        return res.status(200).json({ data: db });
+        let db = await WritingsDb.find().sort({ _id: -1 });
+        const sendDb = await db?.map((elem: responseData) => {
+          if (elem.timeStamp === undefined) {
+            let timestamp = elem._doc._id?.getTimestamp();
+            const sendObj = { ...elem._doc };
+            // @ts-ignore
+            sendObj["timeStamp"] = timestamp;
+            return sendObj;
+          }
+          return elem;
+        });
+
+        return res.status(200).json({ data: sendDb });
       } else {
         let data = await WritingsDb.findOne({ slug });
         return res.status(200).json({ data });

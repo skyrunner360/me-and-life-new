@@ -14,6 +14,13 @@ const Writings = () => {
     queryFn: ({ queryKey }) => getWritings().then((res) => res.data),
   });
   const { data, isLoading, error } = writingsQuery;
+  if (error) {
+    return (
+      <Box>
+        <Typography>Sorry!! Something went wrong</Typography>
+      </Box>
+    );
+  }
   return (
     <>
       <Head>
@@ -24,18 +31,17 @@ const Writings = () => {
         <Box>
           <Box textAlign={"center"}>
             <AnimatedClippedText fontSize="5rem" word="Writings" imgSrc="/clipHero.jpg" />
-            <Box my={2}>
+            <Box mt={4}>
               <Typography variant="h5">These are all of my writings</Typography>
             </Box>
           </Box>
           <Box mt={"7rem"}>
-            {isLoading ? (
+            {isLoading && (
               <Box mx={"auto"} textAlign={"center"}>
                 <CircularProgress />
               </Box>
-            ) : (
-              <CardsList data={data?.data} />
             )}
+            {!isLoading && <CardsList data={data?.data} />}
           </Box>
         </Box>
       </Layout>

@@ -101,6 +101,9 @@
     overflow: hidden;
     margin: 16px 10px;
 }
+.authorAvatar img:hover{
+    filter: none;
+}
 
 .authorName {
     grid-area: auto;
