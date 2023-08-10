@@ -35,7 +35,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       if (slug === undefined) {
         let db = await WritingsDb.find().sort({ _id: -1 });
         const sendDb = await db?.map((elem: responseData) => {
-          if (elem.timeStamp === undefined) {
+          // @ts-ignore
+          if (elem._doc?.timeStamp === undefined) {
             let timestamp = elem._doc._id?.getTimestamp();
             const sendObj = { ...elem._doc };
             // @ts-ignore
