@@ -101,7 +101,7 @@ const AboutCard = () => {
                     @Skyrunner360
                   </Button>
                 </Link>
-                <Link
+                {/* <Link
                   href={"https://www.youtube.com/channel/UCCPZDCXDNY2tvec9xb6Ce9A"}
                   target="_blank"
                 >
@@ -113,7 +113,7 @@ const AboutCard = () => {
                   >
                     @skyrunner360
                   </Button>
-                </Link>
+                </Link> */}
                 <Link href={"mailto:mathurrishi31@gmail.com"} target="_blank">
                   <Button
                     size="small"
