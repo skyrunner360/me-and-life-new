@@ -235,7 +235,7 @@ const SideNavBar = () => {
         {windowWidth <= MOBILE_BREAKPOINT && (
           <Box textAlign={"right"}>
             <IconButton onClick={toggleDrawer} sx={{ position: "relative", zIndex: 4 }}>
-              <Avatar src={"menuIcon.jpg"} variant="rounded" />
+              <Avatar src={"/menuIcon.jpg"} variant="rounded" />
             </IconButton>
           </Box>
         )}
@@ -250,10 +250,10 @@ const SideNavBar = () => {
               <DrawerHeader>
                 <Box display={"flex"} alignItems={"center"}>
                   {open && (
-                    <ClippedText word="Me and Life" imgSrc="carousel1_bkp.jpg" fontSize="2rem" />
+                    <ClippedText word="Me and Life" imgSrc="/carousel1_bkp.jpg" fontSize="2rem" />
                   )}
                   <IconButton onClick={toggleDrawer}>
-                    <Avatar src={"menuIcon.jpg"} variant="rounded" />
+                    <Avatar src={"/menuIcon.jpg"} variant="rounded" />
                   </IconButton>
                 </Box>
               </DrawerHeader>
@@ -276,10 +276,10 @@ const SideNavBar = () => {
             <DrawerHeader>
               <Box display={"flex"} alignItems={"center"}>
                 {open && (
-                  <ClippedText word="Me and Life" imgSrc="carousel1_bkp.jpg" fontSize="2rem" />
+                  <ClippedText word="Me and Life" imgSrc="/carousel1_bkp.jpg" fontSize="2rem" />
                 )}
                 <IconButton onClick={toggleDrawer}>
-                  <Avatar src={"menuIcon.jpg"} variant="rounded" />
+                  <Avatar src={"/menuIcon.jpg"} variant="rounded" />
                 </IconButton>
               </Box>
             </DrawerHeader>
