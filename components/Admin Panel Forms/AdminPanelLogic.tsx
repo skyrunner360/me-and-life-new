@@ -34,6 +34,11 @@ export const getBlogs = () => {
     headers: { Authorization: Token },
   });
 };
+export const getSingleBlog = (slugObj: slugData) => {
+  return axios.get(`blogPost/?slug=${slugObj.slug}`, {
+    headers: { Authorization: Token },
+  });
+};
 
 export const deleteBlog = (slugObj: slugData) => {
   return axios.delete("blogPost", {
@@ -56,6 +61,9 @@ export const addBlog = (vars: addData) => {
 
 export const getTechBlog = () => {
   return axios.get("techBlog", { headers: { Authorization: Token } });
+};
+export const getSingleTechBlog = (slugObj: slugData) => {
+  return axios.get(`techBlog/?slug=${slugObj.slug}`, { headers: { Authorization: Token } });
 };
 
 export const deleteTech = (slugObj: slugData) => {

@@ -39,7 +39,7 @@ const TechBlogs = () => {
                 <CircularProgress />
               </Box>
             )}
-            {!isLoading && <CardsList data={data?.data} />}
+            {!isLoading && <CardsList data={data?.data} basePath="techBlogs" />}
           </Box>
         </Box>
       </Layout>
