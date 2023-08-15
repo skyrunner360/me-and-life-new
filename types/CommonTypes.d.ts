@@ -7,6 +7,7 @@ export interface commonPostResType {
   author: string;
   slug: string;
   timeStamp: string;
+  isNew?: boolean;
   img?: string;
   img2?: string;
   img3?: string;

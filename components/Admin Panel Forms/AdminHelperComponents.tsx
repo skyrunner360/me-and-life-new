@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import moment from "moment";
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler, useRef, useState } from "react";
 import { CommonModal, MessagesModal } from "../common/CommonComponents";
 import { commonPostResType } from "../../types/CommonTypes";
 
@@ -21,8 +21,12 @@ export const PostCard = ({ elem, onEdit, onDelete }: postCardProps) => {
     <>
       <Box p={2} key={elem.slug} border="1px solid #296bd6">
         <Stack direction={"row"} alignItems="center" justifyContent={"center"}>
-          <Button onClick={() => setOpenEdit(true)}>Edit </Button>
-          <Button onClick={() => setOpenDeleteModal(true)}>Delete</Button>
+          <Button onClick={() => setOpenEdit(true)} color="info">
+            Edit{" "}
+          </Button>
+          <Button onClick={() => setOpenDeleteModal(true)} color="info">
+            Delete
+          </Button>
         </Stack>
         <Box>
           <Typography variant="body1" color={"primary"}>

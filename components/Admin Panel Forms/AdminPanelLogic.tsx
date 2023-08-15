@@ -6,7 +6,7 @@ import Writings from "./Writings";
 const Token = process.env.NEXT_PUBLIC_JWT_TOKEN;
 
 interface slugData {
-  slug: string;
+  slug: string | string[] | undefined;
 }
 interface changeData {
   slug: string;
@@ -79,6 +79,10 @@ export const addTech = (vars: addData) => {
 
 export const getWritings = () => {
   return axios.get("writings", { headers: { Authorization: Token } });
+};
+
+export const getWriting = (slugObj: slugData) => {
+  return axios.get(`writings/?slug=${slugObj.slug}`, { headers: { Authorization: Token } });
 };
 
 export const deleteWriting = (slugObj: slugData) => {

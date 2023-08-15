@@ -41,6 +41,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
             const sendObj = { ...elem._doc };
             // @ts-ignore
             sendObj["timeStamp"] = timestamp;
+            sendObj["isNew"] = true;
             return sendObj;
           }
           return elem;
@@ -49,7 +50,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
         return res.status(200).json({ data: sendDb });
       } else {
         let data = await WritingsDb.findOne({ slug });
-        return res.status(200).json({ data });
+        let sendObj = { ...data._doc };
+        if (data?._doc?.timeStamp === undefined) {
+          // @ts-ignore
+          let timestamp = data._doc._id?.getTimestamp();
+          sendObj["timeStamp"] = timestamp;
+          sendObj["isNew"] = true;
+        }
+        return res.status(200).json({ data: sendObj });
       }
     } catch (error) {
       return res.status(400).json({ message: `${error}` });
