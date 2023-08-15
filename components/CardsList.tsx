@@ -26,7 +26,7 @@ const CardsList = ({ data, basePath }: cardsListProps) => {
                 </header>
                 <div style={{ textAlign: "left" }}>
                   <Link href={`${basePath}/${elem?.slug}`} className={homeStyles.neonButton}>
-                    Read
+                    Read More
                   </Link>
                 </div>
 
