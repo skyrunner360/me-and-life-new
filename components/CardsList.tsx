@@ -4,6 +4,8 @@ import Image from "next/image";
 import { commonPostResType } from "../types/CommonTypes";
 import Styles from "./CardsList.module.css";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import homeStyles from "../styles/Home.module.css";
 interface cardsListProps {
   data: Array<commonPostResType>;
   basePath?: string;
@@ -22,6 +24,11 @@ const CardsList = ({ data, basePath }: cardsListProps) => {
                   <p>{moment(elem?.timeStamp).format("MMM Do YY")}</p>
                   <h2 onClick={() => router.push(`${basePath}/${elem?.slug}`)}>{elem?.title}</h2>
                 </header>
+                <div style={{ textAlign: "left" }}>
+                  <Link href={`${basePath}/${elem?.slug}`} className={homeStyles.neonButton}>
+                    Read
+                  </Link>
+                </div>
 
                 <div className={Styles.cardAuthor}>
                   <div className={Styles.authorAvatar}>
