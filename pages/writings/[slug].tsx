@@ -84,9 +84,15 @@ const WritingsView = () => {
                         .toString()
                         .split("\n")
                         .filter((t) => t)
-                        .map((v: string) => <p key={v}>{v}</p>)
+                        .map((v: string) => (
+                          <p key={v} style={{ wordWrap: "break-word" }}>
+                            {v}
+                          </p>
+                        ))
                     ) : (
-                      <pre style={{ fontFamily: "inherit" }}>{actualData.content}</pre>
+                      <pre style={{ fontFamily: "inherit", wordWrap: "break-word" }}>
+                        {actualData.content}
+                      </pre>
                     )}
                   </Grid>
                 </Grid>
