@@ -3,10 +3,13 @@ import moment from "moment";
 import Image from "next/image";
 import { commonPostResType } from "../types/CommonTypes";
 import Styles from "./CardsList.module.css";
+import { useRouter } from "next/router";
 interface cardsListProps {
   data: Array<commonPostResType>;
+  basePath?: string;
 }
-const CardsList = ({ data }: cardsListProps) => {
+const CardsList = ({ data, basePath }: cardsListProps) => {
+  const router = useRouter();
   return (
     <>
       <Box className={Styles.cardList}>
@@ -17,7 +20,7 @@ const CardsList = ({ data }: cardsListProps) => {
               <article className={Styles.card} key={elem.slug + elem._id}>
                 <header className={Styles.cardHeader}>
                   <p>{moment(elem?.timeStamp).format("MMM Do YY")}</p>
-                  <h2>{elem?.title}</h2>
+                  <h2 onClick={() => router.push(`${basePath}/${elem?.slug}`)}>{elem?.title}</h2>
                 </header>
 
                 <div className={Styles.cardAuthor}>
