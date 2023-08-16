@@ -79,7 +79,11 @@ export default function Home() {
               <Grid item sm={6} xs={12} p={2}>
                 <Box
                   position={"relative"}
-                  sx={{ height: { sm: "35rem", xs: "15rem" }, width: { sm: "35rem", xs: "15rem" } }}
+                  sx={{
+                    height: { sm: "35rem", xs: "15rem" },
+                    width: { sm: "35rem", xs: "15rem" },
+                    mx: { xs: "auto" },
+                  }}
                 >
                   <Image src={"/Other 03.svg"} alt="Other Icon" fill />
                 </Box>
