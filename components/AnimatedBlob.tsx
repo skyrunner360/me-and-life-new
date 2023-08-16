@@ -1,14 +1,14 @@
-import KUTE from "kute.js";
+// import KUTE from "kute.js";
 import { useEffect } from "react";
 const AnimatedBlob = () => {
   useEffect(() => {
-    let tween = KUTE.fromTo(
-      "#blob1",
-      { path: "#blob1" },
-      { path: "#blob2" },
-      { repeat: 999, duration: 3000, yoyo: true }
-    );
-    tween.start();
+    // let tween = KUTE.fromTo(
+    //   "#blob1",
+    //   { path: "#blob1" },
+    //   { path: "#blob2" },
+    //   { repeat: 999, duration: 3000, yoyo: true }
+    // );
+    // tween.start();
   }, []);
   return (
     <>
