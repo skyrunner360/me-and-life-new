@@ -24,7 +24,7 @@ const WritingsView = () => {
   });
   const { data, isLoading, error } = writingsQuery;
 
-  if (error || !data?.data) {
+  if (error || (!data?.data && !isLoading)) {
     return (
       <>
         <Box>
@@ -33,7 +33,7 @@ const WritingsView = () => {
       </>
     );
   }
-  const { data: actualData }: { data: commonPostResType } = data;
+  const { data: actualData }: { data: commonPostResType } = !isLoading && data;
   return (
     <>
       <Layout>

@@ -24,7 +24,7 @@ const TechView = () => {
   });
   const { data, isLoading, error } = techQuery;
 
-  if (error || !data?.data) {
+  if (error || (!data?.data && !isLoading)) {
     return (
       <>
         <Box>
@@ -33,7 +33,7 @@ const TechView = () => {
       </>
     );
   }
-  const { data: actualData }: { data: commonPostResType } = data;
+  const { data: actualData }: { data: commonPostResType } = !isLoading && data;
   return (
     <>
       <Layout>
