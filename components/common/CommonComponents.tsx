@@ -1,11 +1,13 @@
 import { MouseEventHandler } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { Divider } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { commonPostResType } from "../../types/CommonTypes";
+import moment from "moment";
 
 interface MessagesModalProps {
   open: boolean;
@@ -112,5 +114,43 @@ export const MessagesModal = ({
         </Stack>
       </Box>
     </Modal>
+  );
+};
+
+export const PostViewer = ({ data }: { data: commonPostResType }) => {
+  return (
+    <>
+      <Grid container sx={{ minHeight: 300 }}>
+        <Grid item sm={1} position={"relative"} xs={12} height={"100%"}>
+          <Box>
+            <Typography variant="h3">{moment(data.timeStamp).format("MMM Do YY")}</Typography>
+          </Box>
+          <Box
+            sx={{
+              transform: { sm: "rotate(-90deg)", xs: "none" },
+              position: { sm: "absolute", xs: "unset" },
+              bottom: "-50%",
+            }}
+          >
+            <Typography>By - {data.author}</Typography>
+          </Box>
+        </Grid>
+        <Grid item sm={10} xs={12}>
+          {data.isNew ? (
+            data.content
+              .toString()
+              .split("\n")
+              .filter((t) => t)
+              .map((v: string) => (
+                <p key={v} style={{ wordWrap: "break-word" }}>
+                  {v}
+                </p>
+              ))
+          ) : (
+            <pre style={{ fontFamily: "inherit", wordWrap: "break-word" }}>{data.content}</pre>
+          )}
+        </Grid>
+      </Grid>
+    </>
   );
 };

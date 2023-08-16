@@ -1,6 +1,7 @@
-import { Box, CircularProgress, Grid, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
 import { useQuery } from "@tanstack/react-query";
-import moment from "moment";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { getSingleTechBlog } from "../../components/Admin Panel Forms/AdminPanelLogic";
@@ -8,6 +9,7 @@ import AnimatedClippedText from "../../components/AnimatedClippedText";
 import ClippedText from "../../components/ClippedText";
 import Layout from "../../components/Layout";
 import TrackingBlur from "../../components/TrackingBlur";
+import { PostViewer } from "../../components/common/CommonComponents";
 import styles from "../../styles/Home.module.css";
 import { commonPostResType } from "../../types/CommonTypes";
 
@@ -57,45 +59,7 @@ const TechView = () => {
               </>
             )}
             <Box mt="7rem">
-              {isLoading ? (
-                <CircularProgress />
-              ) : (
-                <Grid container sx={{ minHeight: 300 }}>
-                  <Grid item sm={1} position={"relative"} xs={12} height={"100%"}>
-                    <Box>
-                      <Typography variant="h3">
-                        {moment(actualData.timeStamp).format("MMM Do YY")}
-                      </Typography>
-                    </Box>
-                    <Box
-                      sx={{
-                        transform: "rotate(-90deg)",
-                        position: "absolute",
-                        bottom: "-50%",
-                      }}
-                    >
-                      <Typography>By - {actualData.author}</Typography>
-                    </Box>
-                  </Grid>
-                  <Grid item sm={10} xs={12}>
-                    {actualData.isNew ? (
-                      actualData.content
-                        .toString()
-                        .split("\n")
-                        .filter((t) => t)
-                        .map((v: string) => (
-                          <p key={v} style={{ wordWrap: "break-word" }}>
-                            {v}
-                          </p>
-                        ))
-                    ) : (
-                      <pre style={{ fontFamily: "inherit", wordWrap: "break-word" }}>
-                        {actualData.content}
-                      </pre>
-                    )}
-                  </Grid>
-                </Grid>
-              )}
+              {isLoading ? <CircularProgress /> : <PostViewer data={actualData} />}
             </Box>
           </Box>
         </div>
