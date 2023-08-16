@@ -2,7 +2,7 @@
 html,
 body {
   padding: 0;
-  margin: 0;
+  margin: 0rem;
   font-family: Oswald, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color:white;
@@ -29,26 +29,6 @@ section{
   min-height: 400px;
   padding: 100px 20vw;
 }
-#blob{
-  background-color: white;
-  height: 90px;
-  aspect-ratio: 1;
-  position: absolute;
-  top: 50%;
-  left:50%;
-  translate: -50% -50%;
-  border-radius: 50%;
-  background: linear-gradient(to right,rgb(194, 235, 241),rgb(50, 222, 238));
-  animation: rotate 20s infinite;
-  filter: blur(500px);
-}
-#blur{
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 2;
-  backdrop-filter: blur(500px);
-}
 @keyframes rotate{
   from{
     rotate: 0deg;
@@ -59,4 +39,23 @@ section{
   to{
     rotate: 360deg;
   }
+}
+#blob{
+  height: 34vmax;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right,rgb(194, 235, 241),rgb(50, 222, 238));
+  animation: rotate 20s infinite;
+  opacity: 0.8;
+}
+#blur{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  backdrop-filter: blur(12vmax);
 }
