@@ -96,7 +96,7 @@ export const MessagesModal = ({
           <CloseIcon />
         </Box>
         <Box p={1} textAlign="center">
-          <Typography variant="h5" color={"primary"} fontWeight={600}>
+          <Typography variant="h5" color={"HighlightText"} fontWeight={600}>
             {title}
           </Typography>
           <Divider sx={{ my: 1 }} />
@@ -105,10 +105,10 @@ export const MessagesModal = ({
           </Typography>
         </Box>
         <Stack direction={"row"} alignItems="center" justifyContent={"center"} gap={2} p={1}>
-          <Button onClick={onClose} variant="text">
+          <Button onClick={onClose} variant="text" color="info">
             Cancel
           </Button>
-          <Button onClick={onConfirmClick} variant="contained">
+          <Button onClick={onConfirmClick} variant="contained" color="info">
             Confirm
           </Button>
         </Stack>
