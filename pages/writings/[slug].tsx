@@ -40,7 +40,7 @@ const WritingsView = () => {
         <div className={styles.container}>
           <TrackingBlur />
           <Head>
-            <title>Me and Life - Writings</title>
+            <title>HOPELOGUE - Writings</title>
             <meta name="description" content="Writings by Rishi Mathur" />
           </Head>
           <Box textAlign={"center"} zIndex={2} position={"relative"}>

@@ -40,7 +40,7 @@ const TechView = () => {
         <div className={styles.container}>
           <TrackingBlur />
           <Head>
-            <title>Me and Life - Technology Blogs</title>
+            <title>HOPELOGUE - Technology Blogs</title>
             <meta name="description" content="Technology Blogs by Rishi Mathur" />
           </Head>
           <Box textAlign={"center"} zIndex={2} position={"relative"}>

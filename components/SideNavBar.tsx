@@ -250,7 +250,7 @@ const SideNavBar = () => {
               <DrawerHeader>
                 <Box display={"flex"} alignItems={"center"}>
                   {open && (
-                    <ClippedText word="Me and Life" imgSrc="/carousel1_bkp.jpg" fontSize="2rem" />
+                    <ClippedText word="HOPELOGUE" imgSrc="/carousel1_bkp.jpg" fontSize="2rem" />
                   )}
                   <IconButton onClick={toggleDrawer}>
                     <Avatar src={"/menuIcon.jpg"} variant="rounded" />
@@ -276,7 +276,7 @@ const SideNavBar = () => {
             <DrawerHeader>
               <Box display={"flex"} alignItems={"center"}>
                 {open && (
-                  <ClippedText word="Me and Life" imgSrc="/carousel1_bkp.jpg" fontSize="2rem" />
+                  <ClippedText word="HOPELOGUE" imgSrc="/carousel1_bkp.jpg" fontSize="2rem" />
                 )}
                 <IconButton onClick={toggleDrawer}>
                   <Avatar src={"/menuIcon.jpg"} variant="rounded" />

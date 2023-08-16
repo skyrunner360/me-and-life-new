@@ -22,7 +22,7 @@ const Writings = () => {
   return (
     <>
       <Head>
-        <title>Me and Life - Writings</title>
+        <title>HOPELOGUE - Writings</title>
         <meta name="description" content="Writings by Rishi Mathur" />
       </Head>
       <Layout>

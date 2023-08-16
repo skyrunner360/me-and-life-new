@@ -22,7 +22,7 @@ const LifeBlogs = () => {
   return (
     <>
       <Head>
-        <title>Me and Life - Life Update Blogs</title>
+        <title>HOPELOGUE - Life Update Blogs</title>
         <meta name="description" content="Life Update Blogs of Rishi Mathur" />
       </Head>
       <Layout>

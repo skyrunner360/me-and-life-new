@@ -9,7 +9,7 @@ const index = () => {
   return (
     <>
       <Head>
-        <title>Me and Life - Contact</title>
+        <title>HOPELOGUE - Contact</title>
         <meta name="description" content="Contact Rishi Mathur" />
       </Head>
       <Layout>

@@ -40,7 +40,7 @@ const LifeView = () => {
         <div className={styles.container}>
           <TrackingBlur />
           <Head>
-            <title>Me and Life - Blogs</title>
+            <title>HOPELOGUE - Blogs</title>
             <meta name="description" content="Blogs by Rishi Mathur" />
           </Head>
           <Box textAlign={"center"} zIndex={2} position={"relative"}>

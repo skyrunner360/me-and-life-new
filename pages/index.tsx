@@ -19,12 +19,12 @@ export default function Home() {
         <div className={styles.container}>
           <TrackingBlur />
           <Head>
-            <title>Me and Life</title>
-            <meta name="description" content="Welcome to Rishi's blog - ME AND LIFE" />
+            <title>HOPELOGUE</title>
+            <meta name="description" content="Welcome to Rishi's blog - HOPELOGUE" />
           </Head>
           <Box px={4} zIndex={2} position={"relative"}>
             <Box textAlign={"center"}>
-              <AnimatedClippedText fontSize="5rem" word="Me and Life" imgSrc="/clipHero.jpg" />
+              <AnimatedClippedText fontSize="5rem" word="HOPELOGUE" imgSrc="/clipHero.jpg" />
             </Box>
             <Grid container>
               <Grid item sm={6} pt={"7rem"} xs={12}>
@@ -51,9 +51,9 @@ export default function Home() {
                     </Box>
                     <Box>
                       <Typography>
-                        Welcome to the small world of this Introvert. Here I&apos;ll be posting some
-                        personal life updates, Some Tech Content and Some Original pieces of writing
-                        or whatever comes to my mind.
+                        Welcome to the small world of this Introvert. The Hopelogue, here I&apos;ll
+                        be posting some personal life updates, Some Tech Content and Some Original
+                        pieces of writing or whatever comes to my mind.
                       </Typography>
                     </Box>
                     <Box py={1}>
