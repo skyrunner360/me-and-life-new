@@ -38,28 +38,31 @@ const TechView = () => {
     <>
       <Layout>
         <div className={styles.container}>
-          <TrackingBlur />
           <Head>
             <title>HOPELOGUE - Technology Blogs</title>
             <meta name="description" content="Technology Blogs by Rishi Mathur" />
           </Head>
-          <Box textAlign={"center"} zIndex={2} position={"relative"}>
-            <AnimatedClippedText fontSize="5rem" word="Technology Blogs" imgSrc="/clipHero.jpg" />
-            {isLoading ? (
-              <Box mx={"auto"} textAlign={"center"}>
-                <CircularProgress />
+          <Box height={"100vh"}>
+            <TrackingBlur />
+
+            <Box textAlign={"center"} zIndex={2} position={"relative"}>
+              <AnimatedClippedText fontSize="5rem" word="Technology Blogs" imgSrc="/clipHero.jpg" />
+              {isLoading ? (
+                <Box mx={"auto"} textAlign={"center"}>
+                  <CircularProgress />
+                </Box>
+              ) : (
+                <>
+                  <ClippedText
+                    word={`${actualData.title}`}
+                    fontSize="3rem"
+                    imgSrc="/carousel1_bkp.jpg"
+                  />
+                </>
+              )}
+              <Box mt="7rem">
+                {isLoading ? <CircularProgress /> : <PostViewer data={actualData} />}
               </Box>
-            ) : (
-              <>
-                <ClippedText
-                  word={`${actualData.title}`}
-                  fontSize="3rem"
-                  imgSrc="/carousel1_bkp.jpg"
-                />
-              </>
-            )}
-            <Box mt="7rem">
-              {isLoading ? <CircularProgress /> : <PostViewer data={actualData} />}
             </Box>
           </Box>
         </div>
