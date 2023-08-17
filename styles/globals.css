@@ -41,7 +41,6 @@ section{
   }
 }
 #blob{
-  height: 34vmax;
   aspect-ratio: 1;
   position: absolute;
   left: 50%;
@@ -49,13 +48,25 @@ section{
   translate: -50% -50%;
   border-radius: 50%;
   background: linear-gradient(to right,rgb(194, 235, 241),rgb(50, 222, 238));
-  animation: rotate 20s infinite;
   opacity: 0.8;
+  display: none;
 }
 #blur{
   height: 100%;
   width: 100%;
   position: absolute;
   z-index: 2;
-  backdrop-filter: blur(12vmax);
+}
+
+@media (hover){
+  #blob{
+    height: 34vmax;
+    animation: rotate 20s infinite;
+    display: block;
+  }
+  #blur{
+    backdrop-filter: blur(12vmax);
+
+  }
+
 }

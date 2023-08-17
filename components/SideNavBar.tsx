@@ -100,13 +100,43 @@ const SideNavBar = () => {
       <div>
         <Divider />
         <List>
+          <Tooltip title={!props?.open ? "Home" : ""} placement="right" arrow>
+            <ListItem
+              disablePadding
+              sx={{ display: "block", "&:hover": { backgroundColor: "#416B9B" } }}
+            >
+              <Link href={"/"} style={{ textDecoration: "none" }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 85,
+                    textDecoration: "none",
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                  }}
+                  selected={pathname === "/"}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <HomeIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={
+                      <Typography variant="body1" fontSize={14}>
+                        Home
+                      </Typography>
+                    }
+                    sx={{ opacity: { sm: open ? 1 : 0 } }}
+                  />
+                </ListItemButton>
+              </Link>
+            </ListItem>
+          </Tooltip>
           {[
-            {
-              title: "Home",
-              icon: <HomeIcon />,
-              path: "/",
-              need_redirect: false,
-            },
             {
               title: "Writings",
               desc: `Writings to let out my thoughts.`,
@@ -160,7 +190,8 @@ const SideNavBar = () => {
                           justifyContent: open ? "initial" : "center",
                           px: 2.5,
                         }}
-                        selected={data?.path === pathname}
+                        // @ts-ignore
+                        selected={pathname?.match(data.path)?.length > 0}
                       >
                         <ListItemIcon
                           sx={{

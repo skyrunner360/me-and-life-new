@@ -19,7 +19,7 @@ const CardsList = ({ data, basePath }: cardsListProps) => {
           const allslugs = elem?.slug.split("-");
           return (
             <>
-              <article className={Styles.card} key={elem.slug + elem._id}>
+              <article className={Styles.card} key={elem.slug + elem?._id}>
                 <header className={Styles.cardHeader}>
                   <p>{moment(elem?.timeStamp).format("MMM Do YY")}</p>
                   <h2 onClick={() => router.push(`${basePath}/${elem?.slug}`)}>{elem?.title}</h2>
