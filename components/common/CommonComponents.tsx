@@ -32,7 +32,7 @@ export const CommonModal = ({ open, onClose, children }: CommonModalProps) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: { xs: 340, sm: 400 },
+          width: { xs: 340, sm: "100%" },
           bgcolor: "background.paper",
           boxShadow: "0px 4px 25px #DCDCE5",
           borderRadius: "4px",
