@@ -7,10 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimatedClippedText from "../components/AnimatedClippedText";
 import ClippedText from "../components/ClippedText";
-import SideNavBar from "../components/SideNavBar";
+import Layout from "../components/Layout";
 import TrackingBlur from "../components/TrackingBlur";
 import styles from "../styles/Home.module.css";
-import Layout from "../components/Layout";
 
 export default function Home() {
   return (
